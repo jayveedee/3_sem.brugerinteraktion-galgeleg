@@ -8,7 +8,7 @@
     tools:context=".PlayMenu">
 
     <Button
-        android:id="@+id/bQ"
+        android:id="@+id/b1"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -18,6 +18,7 @@
         android:backgroundTint="#8BC34A"
         android:text="Q"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +26,7 @@
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bW"
+        android:id="@+id/b2"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="71dp"
@@ -34,13 +35,14 @@
         android:backgroundTint="#8BC34A"
         android:text="W"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bE"
+        android:id="@+id/b3"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="126dp"
@@ -49,32 +51,33 @@
         android:backgroundTint="#8BC34A"
         android:text="E"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bW"
+        app:layout_constraintStart_toEndOf="@+id/b2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bA"
+        android:id="@+id/´b8"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="42dp"
         android:layout_marginTop="477dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="132dp"
-        android:background="#FFFFFF"
         android:backgroundTint="#FF9800"
-        android:text="A"
+        android:text="I"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bS"
+        app:layout_constraintEnd_toStartOf="@+id/b9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bT"
+        android:id="@+id/b5"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="236dp"
@@ -84,16 +87,17 @@
         android:backgroundTint="#8BC34A"
         android:text="T"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/bR"
+        app:layout_constraintStart_toEndOf="@+id/b4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bR"
+        android:id="@+id/b4"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="181dp"
@@ -103,15 +107,16 @@
         android:backgroundTint="#8BC34A"
         android:text="R"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bE"
+        app:layout_constraintStart_toEndOf="@+id/b3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bD"
+        android:id="@+id/b10"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="155dp"
@@ -119,16 +124,17 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="132dp"
         android:backgroundTint="#FF9800"
-        android:text="D"
+        android:text="P"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bF"
+        app:layout_constraintEnd_toStartOf="@+id/b11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bF"
+        android:id="@+id/b11"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="210dp"
@@ -136,16 +142,17 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="132dp"
         android:backgroundTint="#FF9800"
-        android:text="F"
+        android:text="A"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bG"
+        app:layout_constraintEnd_toStartOf="@+id/b12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bG"
+        android:id="@+id/b12"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="265dp"
@@ -153,16 +160,17 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="132dp"
         android:backgroundTint="#FF9800"
-        android:text="G"
+        android:text="S"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bH"
+        app:layout_constraintEnd_toStartOf="@+id/b13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bS"
+        android:id="@+id/b9"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="100dp"
@@ -170,16 +178,17 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="132dp"
         android:backgroundTint="#FF9800"
-        android:text="S"
+        android:text="O"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bD"
+        app:layout_constraintEnd_toStartOf="@+id/b10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bY"
+        android:id="@+id/b6"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
@@ -189,14 +198,15 @@
         android:backgroundTint="#8BC34A"
         android:text="Y"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bT"
+        app:layout_constraintStart_toEndOf="@+id/b5"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bH"
+        android:id="@+id/b13"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="320dp"
@@ -204,8 +214,9 @@
         android:layout_marginEnd="42dp"
         android:layout_marginBottom="132dp"
         android:backgroundTint="#FF9800"
-        android:text="H"
+        android:text="D"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -213,7 +224,7 @@
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bI"
+        android:id="@+id/b14"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
@@ -221,16 +232,17 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="74dp"
         android:backgroundTint="#009688"
-        android:text="I"
+        android:text="F"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bO"
+        app:layout_constraintEnd_toStartOf="@+id/b15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bN"
+        android:id="@+id/b20"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="42dp"
@@ -238,8 +250,9 @@
         android:layout_marginEnd="316dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#3F51B5"
-        android:text="N"
+        android:text="X"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -247,7 +260,7 @@
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bB"
+        android:id="@+id/b21"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
@@ -255,11 +268,12 @@
         android:layout_marginEnd="261dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#3F51B5"
-        android:text="B"
+        android:text="C"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bN"
+        app:layout_constraintStart_toEndOf="@+id/b20"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
@@ -272,8 +286,9 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="74dp"
         android:backgroundTint="#009688"
-        android:text="M"
+        android:text="Z"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -281,7 +296,7 @@
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bL"
+        android:id="@+id/b19"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="292dp"
@@ -291,6 +306,7 @@
         android:backgroundTint="#009688"
         android:text="L"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bM"
         app:layout_constraintStart_toStartOf="parent"
@@ -298,7 +314,7 @@
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bK"
+        android:id="@+id/b18"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="237dp"
@@ -308,14 +324,15 @@
         android:backgroundTint="#009688"
         android:text="K"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bL"
+        app:layout_constraintEnd_toStartOf="@+id/b19"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bJ"
+        android:id="@+id/b17"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="182dp"
@@ -325,14 +342,15 @@
         android:backgroundTint="#009688"
         android:text="J"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bK"
+        app:layout_constraintEnd_toStartOf="@+id/b18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bP"
+        android:id="@+id/b16"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="126dp"
@@ -340,16 +358,17 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="74dp"
         android:backgroundTint="#009688"
-        android:text="P"
+        android:text="H"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bJ"
+        app:layout_constraintEnd_toStartOf="@+id/b17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:visibility="visible" />
 
     <Button
-        android:id="@+id/bO"
+        android:id="@+id/b15"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="71dp"
@@ -357,16 +376,17 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="74dp"
         android:backgroundTint="#009688"
-        android:text="O"
+        android:text="G"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bP"
+        app:layout_constraintEnd_toStartOf="@+id/b16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bU"
+        android:id="@+id/b7"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="346dp"
@@ -376,15 +396,16 @@
         android:backgroundTint="#8BC34A"
         android:text="U"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bY"
+        app:layout_constraintStart_toEndOf="@+id/b6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bZ"
+        android:id="@+id/b25"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
@@ -392,17 +413,18 @@
         android:layout_marginEnd="42dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#3F51B5"
-        android:text="Z"
+        android:text="M"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bX"
+        app:layout_constraintStart_toEndOf="@+id/b24"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bX"
+        android:id="@+id/b24"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
@@ -410,18 +432,19 @@
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#3F51B5"
-        android:text="X"
+        android:text="N"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/bC"
+        app:layout_constraintStart_toEndOf="@+id/b23"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bC"
+        android:id="@+id/b23"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
@@ -429,18 +452,19 @@
         android:layout_marginEnd="125dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#3F51B5"
-        android:text="C"
+        android:text="B"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/bV"
+        app:layout_constraintStart_toEndOf="@+id/b22"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/bV"
+        android:id="@+id/b22"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
@@ -450,10 +474,11 @@
         android:backgroundTint="#3F51B5"
         android:text="V"
         android:textSize="23sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/bB"
+        app:layout_constraintStart_toEndOf="@+id/b21"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText" />
