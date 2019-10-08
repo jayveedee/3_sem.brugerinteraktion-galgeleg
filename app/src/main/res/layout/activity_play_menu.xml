@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/play2"
+    android:background="@drawable/frame00"
     tools:context=".PlayMenu">
 
     <Button
@@ -15,12 +15,14 @@
         android:layout_marginTop="420dp"
         android:layout_marginEnd="345dp"
         android:layout_marginBottom="189dp"
+        android:backgroundTint="#8BC34A"
         android:text="Q"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bW"
@@ -29,11 +31,13 @@
         android:layout_marginStart="71dp"
         android:layout_marginTop="420dp"
         android:layout_marginBottom="189dp"
+        android:backgroundTint="#8BC34A"
         android:text="W"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bE"
@@ -42,12 +46,14 @@
         android:layout_marginStart="126dp"
         android:layout_marginTop="420dp"
         android:layout_marginBottom="189dp"
+        android:backgroundTint="#8BC34A"
         android:text="E"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bW"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bA"
@@ -57,12 +63,14 @@
         android:layout_marginTop="477dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="132dp"
+        android:backgroundTint="#FF9800"
         android:text="A"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bS"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bT"
@@ -72,6 +80,7 @@
         android:layout_marginTop="420dp"
         android:layout_marginEnd="125dp"
         android:layout_marginBottom="189dp"
+        android:backgroundTint="#8BC34A"
         android:text="T"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +88,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/bR"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bR"
@@ -89,13 +99,15 @@
         android:layout_marginTop="420dp"
         android:layout_marginEnd="180dp"
         android:layout_marginBottom="189dp"
+        android:backgroundTint="#8BC34A"
         android:text="R"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bE"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bD"
@@ -105,12 +117,14 @@
         android:layout_marginTop="477dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="132dp"
+        android:backgroundTint="#FF9800"
         android:text="D"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bF"
@@ -120,12 +134,14 @@
         android:layout_marginTop="477dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="132dp"
+        android:backgroundTint="#FF9800"
         android:text="F"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bG"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bG"
@@ -135,12 +151,14 @@
         android:layout_marginTop="477dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="132dp"
+        android:backgroundTint="#FF9800"
         android:text="G"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bH"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bS"
@@ -150,12 +168,14 @@
         android:layout_marginTop="477dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="132dp"
+        android:backgroundTint="#FF9800"
         android:text="S"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bD"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bY"
@@ -165,12 +185,14 @@
         android:layout_marginTop="420dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="189dp"
+        android:backgroundTint="#8BC34A"
         android:text="Y"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bT"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bH"
@@ -180,12 +202,14 @@
         android:layout_marginTop="477dp"
         android:layout_marginEnd="42dp"
         android:layout_marginBottom="132dp"
+        android:backgroundTint="#FF9800"
         android:text="H"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bI"
@@ -195,12 +219,14 @@
         android:layout_marginTop="535dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="74dp"
+        android:backgroundTint="#009688"
         android:text="I"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bO"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bN"
@@ -210,12 +236,14 @@
         android:layout_marginTop="593dp"
         android:layout_marginEnd="316dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#3F51B5"
         android:text="N"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bB"
@@ -225,12 +253,14 @@
         android:layout_marginTop="593dp"
         android:layout_marginEnd="261dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#3F51B5"
         android:text="B"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bN"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bM"
@@ -240,12 +270,14 @@
         android:layout_marginTop="535dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="74dp"
+        android:backgroundTint="#009688"
         android:text="M"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bL"
@@ -255,12 +287,14 @@
         android:layout_marginTop="535dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="74dp"
+        android:backgroundTint="#009688"
         android:text="L"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bM"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bK"
@@ -270,12 +304,14 @@
         android:layout_marginTop="535dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="74dp"
+        android:backgroundTint="#009688"
         android:text="K"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bL"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bJ"
@@ -285,12 +321,14 @@
         android:layout_marginTop="535dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="74dp"
+        android:backgroundTint="#009688"
         android:text="J"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bK"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bP"
@@ -300,12 +338,14 @@
         android:layout_marginTop="535dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="74dp"
+        android:backgroundTint="#009688"
         android:text="P"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bJ"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bO"
@@ -315,12 +355,14 @@
         android:layout_marginTop="535dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="74dp"
+        android:backgroundTint="#009688"
         android:text="O"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bP"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bU"
@@ -330,13 +372,15 @@
         android:layout_marginTop="420dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="189dp"
+        android:backgroundTint="#8BC34A"
         android:text="U"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bY"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bZ"
@@ -346,13 +390,15 @@
         android:layout_marginTop="593dp"
         android:layout_marginEnd="42dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#3F51B5"
         android:text="Z"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bX"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bX"
@@ -362,6 +408,7 @@
         android:layout_marginTop="593dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#3F51B5"
         android:text="X"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -369,7 +416,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/bC"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bC"
@@ -379,6 +427,7 @@
         android:layout_marginTop="593dp"
         android:layout_marginEnd="125dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#3F51B5"
         android:text="C"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -386,7 +435,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/bV"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bV"
@@ -396,6 +446,7 @@
         android:layout_marginTop="593dp"
         android:layout_marginEnd="180dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#3F51B5"
         android:text="V"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -403,6 +454,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/bB"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/iStats"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="347dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="603dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_statistics_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
