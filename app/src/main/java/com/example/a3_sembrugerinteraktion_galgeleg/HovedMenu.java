@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class HovedMenu extends AppCompatActivity {
 
     Button bStart;
+    ImageView iHjaelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,13 @@ public class HovedMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HovedMenu.this, PlayMenu.class));
+            }
+        });
+
+        iHjaelp = findViewById(R.id.iHjaelp); iHjaelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HovedMenu.this, HjaelpMenu.class));
             }
         });
     }

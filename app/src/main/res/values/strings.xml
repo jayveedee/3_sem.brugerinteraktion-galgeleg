@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">3_sem.brugerinteraktion-galgeleg</string>
+    <string name="hangman">Hangman</string>
+    <string name="start">Start</string>
 </resources>
