@@ -59,7 +59,7 @@
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/´b8"
+        android:id="@+id/b8"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="42dp"

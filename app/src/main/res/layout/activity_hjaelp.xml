@@ -7,17 +7,113 @@
     android:background="@drawable/hjaelp"
     tools:context=".HjaelpMenu">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="137dp"
-        android:layout_height="184dp"
-        android:layout_marginStart="137dp"
-        android:layout_marginTop="194dp"
-        android:layout_marginEnd="137dp"
-        android:layout_marginBottom="281dp"
+    <Button
+        android:id="@+id/bGithub"
+        android:layout_width="420dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="589dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#C1000000"
+        android:fontFamily="@font/acme"
+        android:text="Github \n "
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/sym_call_missed" />
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tGithub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="616dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="27dp"
+        android:text="https://github.com/jayveedee/3_sem.brugerinteraktion-galgeleg"
+        android:textColor="#5CE91E63"
+        android:textSize="12sp"
+        android:textStyle="bold|italic"
+        android:translationZ="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="341dp"
+        android:layout_marginBottom="616dp"
+        android:text="@string/about"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tDate"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="295dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="616dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tMadeBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="517dp"
+        android:text="Udviklet af \n Jákup Viljam Dam (s185095)"
+        android:textAlignment="center"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="246dp"
+        android:layout_marginTop="157dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="466dp"
+        android:text="Mandatory Assignment 2 \n Galgeleg"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="157dp"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="466dp"
+        android:text="Brugerinteraktion & Mobiludvikling \n Jacob Nordfalk (Underviser)"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
