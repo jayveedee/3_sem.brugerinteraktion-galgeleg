@@ -20,6 +20,7 @@ public class HjaelpMenu extends AppCompatActivity implements View.OnClickListene
 
     Button bGithub;
     TextView tGithub, tDate;
+    ImageView iAboutMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,8 @@ public class HjaelpMenu extends AppCompatActivity implements View.OnClickListene
         tGithub = findViewById(R.id.tGithub);
 
         tDate = findViewById(R.id.tDate); tDate.setText(getDate());
+
+        iAboutMe = findViewById(R.id.iAboutMe); iAboutMe.setOnClickListener(this);
     }
 
     @Override
@@ -44,6 +47,12 @@ public class HjaelpMenu extends AppCompatActivity implements View.OnClickListene
         if (v == bGithub) {
             Log.d("hjaelp",tGithub.getText().toString());
             Uri uri = Uri.parse(tGithub.getText().toString());
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        }
+        if (v == iAboutMe) {
+            Log.d("hjaelp","aboutMe Image");
+            Uri uri = Uri.parse("https://pics.me.me/hey-baby-whats-the-droprate-of-that-skirt-27652567.png");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
         }
