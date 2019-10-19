@@ -21,15 +21,15 @@ public class Galgelogik {
   private boolean spilletErTabt;
 
   public Galgelogik() {
-    muligeOrd.add("bil");
-    muligeOrd.add("computer");
-    muligeOrd.add("programmering");
-    muligeOrd.add("motorvej");
-    muligeOrd.add("busrute");
-    muligeOrd.add("gangsti");
-    muligeOrd.add("skovsnegl");
-    muligeOrd.add("solsort");
-    muligeOrd.add("nitten");
+    muligeOrd.add("BIL");
+    muligeOrd.add("COMPUTER");
+    muligeOrd.add("PROGRAMMERING");
+    muligeOrd.add("MOTORVEJ");
+    muligeOrd.add("BUSRUTE");
+    muligeOrd.add("GANGSTI");
+    muligeOrd.add("SKOVSNEGL");
+    muligeOrd.add("SOLSORT");
+    muligeOrd.add("NITTEN");
     nulstil();
   }
 
@@ -107,7 +107,7 @@ public class Galgelogik {
       sidsteBogstavVarKorrekt = false;
       System.out.println("Bogstavet var IKKE korrekt: " + bogstav);
       antalForkerteBogstaver = antalForkerteBogstaver + 1;
-      if (antalForkerteBogstaver > 6) {
+      if (antalForkerteBogstaver > 5) {
         spilletErTabt = true;
       }
     }

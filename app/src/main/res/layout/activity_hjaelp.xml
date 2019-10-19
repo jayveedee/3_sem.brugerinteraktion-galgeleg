@@ -7,33 +7,17 @@
     android:background="@drawable/hjaelp"
     tools:context=".HjaelpMenu">
 
-    <Button
-        android:id="@+id/bGithub"
-        android:layout_width="420dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="589dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#C1000000"
-        android:fontFamily="@font/acme"
-        android:text="Github \n "
-        android:textAlignment="viewStart"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
-
     <TextView
         android:id="@+id/tGithub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="616dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="564dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="75dp"
         android:text="https://github.com/jayveedee/3_sem.brugerinteraktion-galgeleg"
         android:textColor="#5CE91E63"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:textStyle="bold|italic"
         android:translationZ="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -131,4 +115,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_aboutme_foreground" />
+
+    <Button
+        android:id="@+id/bGithub"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="504dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginBottom="107dp"
+        android:text="Github"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
