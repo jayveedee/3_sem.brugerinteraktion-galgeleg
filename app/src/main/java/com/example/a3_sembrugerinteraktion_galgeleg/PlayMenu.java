@@ -3,15 +3,12 @@ package com.example.a3_sembrugerinteraktion_galgeleg;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,13 +19,13 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private Galgelogik gLogik = new Galgelogik();
     private TextView textField;
     private ConstraintLayout conLayout;
+    private boolean justFinished = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_menu);
         conLayout = findViewById(R.id.playMenu);
-        createStatisticView();
 
         initializeGame();
     }
@@ -36,7 +33,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         boolean gameOver = gLogik.erSpilletSlut();
-        Log.d("PlayMenu", "gameOver = " + gameOver);
+        Log.d("play", "gameOver = " + gameOver);
 
         if (!gameOver){
             // Checks which button is being pressed and saves that button
@@ -46,7 +43,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
                     keyboard.get(i).setVisibility(View.INVISIBLE);
                     bokstav = keyboard.get(i).getText().toString();
 
-                    Log.d("PlayMenu","bokstav : " + bokstav);
+                    Log.d("play","bokstav : " + bokstav);
                 }
             }
 
@@ -62,8 +59,26 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
                 int resID = getResources().getIdentifier(frameSTR,"drawable",getPackageName());
                 conLayout.setBackground(getDrawable(resID));
 
-                Log.d("PlayMenu","frame = " + frameSTR);
-                Log.d("PlayMenu","frameID = " + resID);
+                Log.d("play","frame = " + frameSTR);
+                Log.d("play","frameID = " + resID);
+            }
+        }
+        else {
+            if (justFinished){
+                Animation fadeOut = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadeout);
+                textField.setText(gLogik.getOrdet());
+                for (int i = 0; i < keyboard.size(); i++) {
+                    if (keyboard.get(i).getVisibility() == View.VISIBLE) {
+                        keyboard.get(i).startAnimation(fadeOut);
+                        keyboard.get(i).setVisibility(View.INVISIBLE);
+                    }
+                }
+                Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
+                Button bReset = findViewById(R.id.bReset);
+                bReset.startAnimation(fadeIn);
+                bReset.setVisibility(View.VISIBLE);
+
+                justFinished = false;
             }
         }
     }
@@ -87,21 +102,11 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
 
         // Logcat
-        Log.d("PlayMenu","textField = " + gLogik.getSynligtOrd());
-        Log.d("PlayMenu","textField = " + gLogik.getOrdet());
+        Log.d("play","textField = " + gLogik.getSynligtOrd());
+        Log.d("play","textField = " + gLogik.getOrdet());
         for (int i = 0; i < keyboard.size(); i++) {
             int b = i + 1;
-            Log.d("PlayMenu", "b" + b + " = " + keyboard.get(i));
+            Log.d("play", "b" + b + " = " + keyboard.get(i).getId());
         }
-    }
-
-    private void createStatisticView() {
-        ImageView iStats = findViewById(R.id.iStats);
-        iStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PlayMenu.this, StatisticsMenu.class));
-            }
-        });
     }
 }

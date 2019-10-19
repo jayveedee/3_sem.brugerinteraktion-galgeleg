@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class HovedMenu extends AppCompatActivity {
+public class MainMenu extends AppCompatActivity {
 
     Button bStart;
     ImageView iHjaelp;
@@ -21,14 +21,22 @@ public class HovedMenu extends AppCompatActivity {
         bStart = findViewById(R.id.bStart); bStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HovedMenu.this, PlayMenu.class));
+                startActivity(new Intent(MainMenu.this, PlayMenu.class));
             }
         });
 
-        iHjaelp = findViewById(R.id.iHjaelp); iHjaelp.setOnClickListener(new View.OnClickListener() {
+        iHjaelp = findViewById(R.id.iHelp); iHjaelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HovedMenu.this, HjaelpMenu.class));
+                startActivity(new Intent(MainMenu.this, HelpMenu.class));
+            }
+        });
+
+        ImageView iStats = findViewById(R.id.iStats);
+        iStats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainMenu.this, StatisticsMenu.class));
             }
         });
     }

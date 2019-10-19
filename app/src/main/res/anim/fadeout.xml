@@ -4,8 +4,8 @@
     tools:ignore="ExtraText">
     android:interpolator="@android:anim/linear_interpolator">
     <alpha
-        android:duration="3000"
+        android:duration="2000"
         android:fromAlpha="1.0"
-        android:toAlpha="0.1" >
+        android:toAlpha="0.01">
     </alpha>
 </set>

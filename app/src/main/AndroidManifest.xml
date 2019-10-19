@@ -12,9 +12,9 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".StatisticsMenu"></activity>
-        <activity android:name=".HjaelpMenu" />
+        <activity android:name=".HelpMenu" />
         <activity android:name=".PlayMenu" />
-        <activity android:name=".HovedMenu">
+        <activity android:name=".MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
