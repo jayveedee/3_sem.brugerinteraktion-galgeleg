@@ -3,6 +3,7 @@ package com.example.a3_sembrugerinteraktion_galgeleg;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,8 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private ArrayList<Button> keyboard = new ArrayList<>();
     private Galgelogik gLogik = new Galgelogik();
     private TextView textField;
+    private Button bReset;
+    private Animation fadeIn, fadeOut;
     private ConstraintLayout conLayout;
     private boolean justFinished = true;
 
@@ -44,41 +47,56 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
                     bokstav = keyboard.get(i).getText().toString();
 
                     Log.d("play","bokstav : " + bokstav);
+
+                    gLogik.gætBogstav(bokstav);
+                    if (gLogik.erSidsteBogstavKorrekt()){
+                        textField.setText(gLogik.getSynligtOrd());
+                    }
+                    else {
+                        int frameNR = gLogik.getAntalForkerteBogstaver();
+                        String frameSTR = "frame0" + frameNR;
+                        int resID = getResources().getIdentifier(frameSTR,"drawable",getPackageName());
+                        conLayout.setBackground(getDrawable(resID));
+
+                        Log.d("play","frame = " + frameSTR);
+                        Log.d("play","frameID = " + resID);
+                    }
+                    break;
                 }
             }
 
-            // Calls the logic class and passes the saved letter. If it's correct, updates textView
-            gLogik.gætBogstav(bokstav);
-            if (gLogik.erSidsteBogstavKorrekt()){
-                textField.setText(gLogik.getSynligtOrd());
-
-            }
-            else {
-                int frameNR = gLogik.getAntalForkerteBogstaver();
-                String frameSTR = "frame0" + frameNR;
-                int resID = getResources().getIdentifier(frameSTR,"drawable",getPackageName());
-                conLayout.setBackground(getDrawable(resID));
-
-                Log.d("play","frame = " + frameSTR);
-                Log.d("play","frameID = " + resID);
-            }
         }
         else {
             if (justFinished){
-                Animation fadeOut = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadeout);
+                if (gLogik.erSpilletVundet()){
+                    textField.setTextColor(Color.parseColor("#8BC34A"));
+                }
+                else {
+                    textField.setTextColor(Color.parseColor("#FF0000"));
+                }
                 textField.setText(gLogik.getOrdet());
+                fadeOut = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadeout);
                 for (int i = 0; i < keyboard.size(); i++) {
                     if (keyboard.get(i).getVisibility() == View.VISIBLE) {
                         keyboard.get(i).startAnimation(fadeOut);
                         keyboard.get(i).setVisibility(View.INVISIBLE);
                     }
                 }
-                Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
-                Button bReset = findViewById(R.id.bReset);
+
+                fadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
                 bReset.startAnimation(fadeIn);
                 bReset.setVisibility(View.VISIBLE);
 
                 justFinished = false;
+            }
+            if (v == bReset){
+                gLogik.nulstil();
+                textField.setText(gLogik.getSynligtOrd());
+                for (int i = 0; i < keyboard.size(); i++) {
+                    keyboard.get(i).setVisibility(View.VISIBLE);
+                }
+                justFinished = true;
+                bReset.setVisibility(View.INVISIBLE);
             }
         }
     }
@@ -99,6 +117,12 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         // Initialize textfield
         textField = findViewById(R.id.tBokstaver);
         textField.setText(gLogik.getSynligtOrd());
+
+
+        // Initialize reset button
+        bReset = findViewById(R.id.bReset);
+        bReset.setVisibility(View.INVISIBLE);
+        bReset.setOnClickListener(this);
 
 
         // Logcat
