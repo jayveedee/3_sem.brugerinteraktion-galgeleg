@@ -102,6 +102,9 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
                 bReset.setVisibility(View.INVISIBLE);
                 iGameOver.setVisibility(View.INVISIBLE);
                 textField.setTextColor(Color.parseColor("#FF9800"));
+                for (int i = 0; i < keyboard.size(); i++) {
+                    keyboard.get(i).setClickable(true);
+                }
             }
         }
         checkIfGameOver(antalSpilVundetTabt, antalSpilSpillet);
@@ -132,6 +135,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
                 if (keyboard.get(j).getVisibility() == View.VISIBLE) {
                     keyboard.get(j).startAnimation(fadeOut);
                     keyboard.get(j).setVisibility(View.INVISIBLE);
+                    keyboard.get(j).setClickable(false);
                 }
             }
             Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadein);
