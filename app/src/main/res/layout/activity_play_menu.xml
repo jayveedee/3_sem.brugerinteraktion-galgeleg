@@ -18,7 +18,7 @@
         android:layout_marginBottom="573dp"
         android:letterSpacing="0.3"
         android:textAlignment="center"
-        android:textColor="#FF0000"
+        android:textColor="#FF9800"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -504,7 +504,7 @@
         android:layout_width="175dp"
         android:layout_height="55dp"
         android:layout_marginStart="118dp"
-        android:layout_marginTop="421dp"
+        android:layout_marginTop="391dp"
         android:layout_marginEnd="118dp"
         android:layout_marginBottom="183dp"
         android:background="@drawable/rounded_button"
@@ -517,6 +517,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/iGameOver"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="485dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="30dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="winning image"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

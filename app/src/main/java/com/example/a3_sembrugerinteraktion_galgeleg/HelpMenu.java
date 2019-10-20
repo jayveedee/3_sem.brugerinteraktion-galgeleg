@@ -16,8 +16,8 @@ import java.util.Date;
 
 public class HelpMenu extends AppCompatActivity implements View.OnClickListener {
 
-    Button bGithub;
-    TextView tGithub, tDate;
+    Button bGithub, bInside;
+    TextView tDate;
     ImageView iosrsMeme1, iosrsMeme0;
 
     @Override
@@ -28,6 +28,7 @@ public class HelpMenu extends AppCompatActivity implements View.OnClickListener 
         iosrsMeme0 = findViewById(R.id.iosrsMeme0); iosrsMeme0.setOnClickListener(this);
         iosrsMeme1 = findViewById(R.id.iosrsMeme1); iosrsMeme1.setOnClickListener(this);
         bGithub = findViewById(R.id.bGithub); bGithub.setOnClickListener(this);
+        bInside = findViewById(R.id.bInside); bInside.setOnClickListener(this);
         tDate = findViewById(R.id.tDate); tDate.setText(getDate());
 
     }
@@ -36,8 +37,9 @@ public class HelpMenu extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View v) {
 
         if (v == bGithub) {
-            Log.d("help",tGithub.getText().toString());
-            Uri uri = Uri.parse(tGithub.getText().toString());
+            String url = "https://github.com/jayveedee/3_sem.brugerinteraktion-galgeleg";
+            Log.d("help","github link = " + url);
+            Uri uri = Uri.parse(url);
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
         }
@@ -51,6 +53,13 @@ public class HelpMenu extends AppCompatActivity implements View.OnClickListener 
         if (v == iosrsMeme1) {
             String url = "https://imgur.com/72qSWYQ.jpg";
             Log.d("help","osrs meme 01 = " + url);
+            Uri uri = Uri.parse(url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        }
+        if (v == bInside){
+            String url = "https://www.inside.dtu.dk/en/dtuinside/generelt/telefonbog/person?id=137487&tab=0";
+            Log.d("help", "inside link = " + url);
             Uri uri = Uri.parse(url);
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
