@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 public class StatisticsMenu extends AppCompatActivity {
 
+    // Variabler
+
     private Galgelogik gLogik = Galgelogik.getInstance();
     private ArrayList<Integer> antalVundet = gLogik.getAntalSpilVundetTabt();
     private int antalSpil = gLogik.getAntalSpilSpillet();
@@ -29,11 +31,11 @@ public class StatisticsMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics_menu);
 
+        // Laver en graf ud fra et importeret bibliotek
 
         graph = findViewById(R.id.graph);
         graph.setTitle("Win / Lose Graph");
         graph.setTitleTextSize(75);
-
 
 
         // Logcat
@@ -44,6 +46,7 @@ public class StatisticsMenu extends AppCompatActivity {
         Log.d("stats","antalSpil = " + antalSpil);
     }
 
+    // For at opdatere grafen bruges der et Runnable objekt, såsom dataet bliver opdateret efter hvert spil
     @Override
     public void onResume(){
         super.onResume();
@@ -59,8 +62,10 @@ public class StatisticsMenu extends AppCompatActivity {
 
                     series.appendData(new DataPoint(x,y),true,40);
                 }
+
+                // Indsætter dataet på viewet som en graf og definerer farver osv.
+
                 graph.addSeries(series);
-                series.setTitle("Random Curve 1");
                 series.setColor(Color.GREEN);
                 series.setDrawDataPoints(true);
                 series.setDataPointsRadius(10);

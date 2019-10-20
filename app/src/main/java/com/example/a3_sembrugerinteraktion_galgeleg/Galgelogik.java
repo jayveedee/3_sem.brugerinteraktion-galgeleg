@@ -38,6 +38,8 @@ public class Galgelogik {
   }
 
 
+  // lavede klassen om til en singleton
+
   public static Galgelogik getInstance(){
     if (instance == null){
       instance = new Galgelogik();

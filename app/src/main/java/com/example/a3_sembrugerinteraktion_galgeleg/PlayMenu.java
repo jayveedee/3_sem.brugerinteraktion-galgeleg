@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 public class PlayMenu extends AppCompatActivity implements View.OnClickListener {
 
+    // Variabler
+
     private Galgelogik gLogik = Galgelogik.getInstance();
     private ArrayList<Button> keyboard = new ArrayList<>();
     private String frameSTR = "";
@@ -31,8 +33,10 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_play_menu);
+
+        // Initialiserer alle knapper, textviews osv.
+
         initializeGame();
 
 
@@ -55,6 +59,8 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
 
+        // Tjekker om spillet er slut, hvor mange gange spillet har været i gang og hvor mange gange spilleren vandt
+
         gameOver = gLogik.erSpilletSlut();
         int antalSpilSpillet = gLogik.getAntalSpilSpillet();
         int antalSpilVundetTabt;
@@ -65,8 +71,12 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
             antalSpilVundetTabt = 0;
         }
 
+        // Kører i denne if statement mens spillet er i gang
+
         if (!gameOver){
             for (int i = 0; i < keyboard.size(); i++) {
+
+                // Når forloopen finder bokstaven som blev trykket, vil den derefter lave den usynlig og tjekke om den bokstav passer i det gættede ord
 
                 if (v.getId() == keyboard.get(i).getId()){
 
@@ -75,6 +85,8 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
                     gLogik.gætBogstav(bokstav);
                     textField.setText(gLogik.getSynligtOrd());
+
+                    // Hvis det var den forkerte bokstav, opdateres baggrunden
 
                     if (!gLogik.erSidsteBogstavKorrekt()){
 
@@ -87,6 +99,8 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
             }
         }
         else {
+
+            // Hvis spillet er slut og reset knappen bliver trykket ændres baggrunden og alle knapper, text og galgelogik bliver nulstillet
 
             if (v == bReset){
 
@@ -107,15 +121,22 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
                 textField.setTextColor(Color.parseColor("#FF9800"));
             }
         }
+
+        // Når spillet slutter for første gang, vil der ske en animation og nogle ændringer der bliver lavet i metoden nedenfor
+
         if (gLogik.getAntalForkerteBogstaver() >= 6 || gLogik.erSpilletVundet()) checkIfGameOver(antalSpilVundetTabt, antalSpilSpillet);
     }
 
     private void checkIfGameOver(int antalSpilVundetTabt, int antalSpilSpillet) {
 
+        //Definerer animationen
+
         Animation fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout);
         Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadein);
 
         textField.setText(gLogik.getOrdet());
+
+        // Laver knapperne usynlige og unclickable
 
         for (int j = 0; j < keyboard.size(); j++) {
             if (keyboard.get(j).getVisibility() == View.VISIBLE) {
@@ -128,6 +149,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         bReset.startAnimation(fadeIn);
         bReset.setVisibility(View.VISIBLE);
 
+        // Alt efter om spilleren vandt eller tabte, vil farven og baggrunden ændres i de her to if else statements
 
         if (gLogik.erSpilletVundet()){
 
@@ -136,6 +158,8 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
             iGameOver.startAnimation(fadeIn);
             iGameOver.setVisibility(View.VISIBLE);
             iGameOver.setBackground(getDrawable(R.drawable.excitedface_icon));
+
+            // Variablerne bliver opdateret, såsom man kan senere hen bruge gem i statistik aktiviteten
 
             antalSpilVundetTabt++;
             gLogik.getAntalSpilVundetTabt().add(antalSpilVundetTabt);
@@ -150,6 +174,8 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
             iGameOver.startAnimation(fadeIn);
             iGameOver.setVisibility(View.VISIBLE);
             iGameOver.setBackground(getDrawable(R.drawable.deadface_icon));
+
+            // Variablerne bliver opdateret, såsom man kan senere hen bruge gem i statistik aktiviteten
 
             antalSpilVundetTabt--;
             gLogik.getAntalSpilVundetTabt().add(antalSpilVundetTabt);

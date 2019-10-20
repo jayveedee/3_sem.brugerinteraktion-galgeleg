@@ -12,6 +12,8 @@ import android.widget.ImageView;
 
 public class MainMenu extends AppCompatActivity {
 
+    // Variabler
+
     Button bStart;
     ImageView iHjaelp;
     Galgelogik gLogik = Galgelogik.getInstance();
@@ -20,6 +22,8 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Thejjer hvilken knap der bliver brugt
 
         bStart = findViewById(R.id.bStart); bStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +48,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
+        // For at håndtere en fejl, bliver AsyncTask brugt til at hente regnearket fra nettet
 
         new Regneark().execute();
     }

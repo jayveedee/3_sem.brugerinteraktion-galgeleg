@@ -18,6 +18,8 @@ import java.util.Date;
 
 public class HelpMenu extends AppCompatActivity implements View.OnClickListener {
 
+    // Variabler
+
     private Button bGithub, bInside;
     private TextView tDate;
     private ImageView iosrsMeme1, iosrsMeme0;
@@ -28,11 +30,15 @@ public class HelpMenu extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
+        // Initialiserer det som er på viewet
+
         iosrsMeme0 = findViewById(R.id.iosrsMeme0); iosrsMeme0.setOnClickListener(this);
         iosrsMeme1 = findViewById(R.id.iosrsMeme1); iosrsMeme1.setOnClickListener(this);
         bGithub = findViewById(R.id.bGithub); bGithub.setOnClickListener(this);
         bInside = findViewById(R.id.bInside); bInside.setOnClickListener(this);
         tDate = findViewById(R.id.tDate);
+
+        // Laver et Runnable objekt til at håndtere klokken
 
         final Runnable updateClock = new Runnable() {
             @Override
@@ -46,6 +52,8 @@ public class HelpMenu extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+
+        // Tjekker hvilken knap der bliver brugt
 
         if (v == bGithub) {
             String url = "https://github.com/jayveedee/3_sem.brugerinteraktion-galgeleg";
@@ -76,6 +84,8 @@ public class HelpMenu extends AppCompatActivity implements View.OnClickListener 
             startActivity(intent);
         }
     }
+
+    // Finder datoen ud fra nuværende millisekunder, og laver et data objekt ud af det.
 
     private String getDate() {
         long currentMillis = System.currentTimeMillis();
