@@ -2,7 +2,9 @@ package com.example.a3_sembrugerinteraktion_galgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +14,7 @@ public class MainMenu extends AppCompatActivity {
 
     Button bStart;
     ImageView iHjaelp;
+    Galgelogik gLogik = Galgelogik.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,5 +42,20 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(new Intent(MainMenu.this, StatisticsMenu.class));
             }
         });
+
+
+        new Regneark().execute();
+    }
+    private class Regneark extends AsyncTask<Void, Void, Void> {
+        @SuppressLint("WrongThread")
+        @Override
+        protected Void doInBackground(Void... params){
+            try {
+                gLogik.hentOrdFraRegneark("1");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
     }
 }

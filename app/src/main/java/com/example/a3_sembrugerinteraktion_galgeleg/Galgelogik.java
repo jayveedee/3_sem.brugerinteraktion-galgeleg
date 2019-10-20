@@ -19,6 +19,7 @@ public class Galgelogik {
   private boolean sidsteBogstavVarKorrekt;
   private boolean spilletErVundet;
   private boolean spilletErTabt;
+  private static Galgelogik instance;
 
   public Galgelogik() {
     muligeOrd.add("BIL");
@@ -31,6 +32,14 @@ public class Galgelogik {
     muligeOrd.add("SOLSORT");
     muligeOrd.add("NITTEN");
     nulstil();
+  }
+
+
+  public static Galgelogik getInstance(){
+    if (instance == null){
+      instance = new Galgelogik();
+    }
+    return instance;
   }
 
 

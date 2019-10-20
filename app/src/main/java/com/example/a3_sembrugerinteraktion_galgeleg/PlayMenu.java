@@ -3,6 +3,7 @@ package com.example.a3_sembrugerinteraktion_galgeleg;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -18,34 +19,20 @@ import java.util.ArrayList;
 
 public class PlayMenu extends AppCompatActivity implements View.OnClickListener {
 
-    private Galgelogik gLogik = new Galgelogik();
+    private Galgelogik gLogik = Galgelogik.getInstance();
     private ArrayList<Button> keyboard = new ArrayList<>();
     private String frameSTR = "";
     private TextView textField;
     private ImageView iGameOver;
     private Button bReset;
     private ConstraintLayout conLayout;
-    private Exception exception;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_menu);
-        new getRegnearkTekst().execute();
         initializeGame();
-    }
-
-    private class getRegnearkTekst extends AsyncTask<Void, Void, Void>{
-        @Override
-        protected Void doInBackground(Void... params){
-            try {
-                gLogik.hentOrdFraRegneark("1");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
     }
 
     @Override
@@ -165,6 +152,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
             b.setOnClickListener(this);
         }
+
 
         // Initialiserer textviewet
         textField = findViewById(R.id.tBokstaver);
