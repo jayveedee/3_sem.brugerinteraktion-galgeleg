@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,9 +17,10 @@ import java.util.Date;
 
 public class HelpMenu extends AppCompatActivity implements View.OnClickListener {
 
-    Button bGithub, bInside;
-    TextView tDate;
-    ImageView iosrsMeme1, iosrsMeme0;
+    private Button bGithub, bInside;
+    private TextView tDate;
+    private ImageView iosrsMeme1, iosrsMeme0;
+    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,16 @@ public class HelpMenu extends AppCompatActivity implements View.OnClickListener 
         iosrsMeme1 = findViewById(R.id.iosrsMeme1); iosrsMeme1.setOnClickListener(this);
         bGithub = findViewById(R.id.bGithub); bGithub.setOnClickListener(this);
         bInside = findViewById(R.id.bInside); bInside.setOnClickListener(this);
-        tDate = findViewById(R.id.tDate); tDate.setText(getDate());
+        tDate = findViewById(R.id.tDate);
 
+        final Runnable updateClock = new Runnable() {
+            @Override
+            public void run() {
+                tDate.setText(getDate());
+                handler.postDelayed(this,1000);
+            }
+        };
+        handler.postDelayed(updateClock,1);
     }
 
     @Override
