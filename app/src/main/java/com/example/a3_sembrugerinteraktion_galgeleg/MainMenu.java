@@ -25,6 +25,7 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainMenu.this, PlayMenu.class));
+                gLogik.nulstil();
             }
         });
 

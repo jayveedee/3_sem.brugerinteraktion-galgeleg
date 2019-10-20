@@ -24,11 +24,13 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private ImageView iGameOver;
     private Button bReset;
     private ConstraintLayout conLayout;
+    private int antalSpilVundetTabt;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_play_menu);
         initializeGame();
     }
@@ -39,6 +41,13 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         // Tjekker om spillet er færdigt eller ej, om det er, vil man ikke kunne trykke på de sædvanlige knapper
 
         boolean gameOver = gLogik.erSpilletSlut();
+        int antalSpilSpillet = gLogik.getAntalSpilSpillet();
+        if (gLogik.getAntalSpilVundetTabt().size() > 0) {
+            antalSpilVundetTabt = gLogik.getAntalSpilVundetTabt().get(gLogik.getAntalSpilVundetTabt().size() - 1);
+        }
+        else {
+            antalSpilVundetTabt = 0;
+        }
 
         String bokstav = "";
 
@@ -95,16 +104,24 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
                 textField.setTextColor(Color.parseColor("#FF9800"));
             }
         }
-        checkIfGameOver();
+        checkIfGameOver(antalSpilVundetTabt, antalSpilSpillet);
 
         // Logcat
         Log.d("play","###############################");
         Log.d("play","ButtonPressed = " + bokstav);
         Log.d("play","CurrentFrame = " + frameSTR);
         Log.d("play","GameOver = " + gameOver);
+        Log.d("play","textField = " + gLogik.getSynligtOrd());
+        Log.d("play","textField = " + gLogik.getOrdet());
+        /*
+        for (int i = 0; i < keyboard.size(); i++) {
+            int b = i + 1;
+            Log.d("play", "b" + b + " = " + keyboard.get(i).getId());
+        }
+        */
     }
 
-    private void checkIfGameOver() {
+    private void checkIfGameOver(int antalSpilVundetTabt, int antalSpilSpillet) {
         if (gLogik.getAntalForkerteBogstaver() >= 6 || gLogik.erSpilletVundet()){
 
             // Viser frem det ord der skulle gættest og laver en animation for at gemme knapperne og derefter vise frem reset knappen
@@ -128,12 +145,22 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
                 iGameOver.startAnimation(fadeIn);
                 iGameOver.setVisibility(View.VISIBLE);
                 iGameOver.setBackground(getDrawable(R.drawable.excitedface_icon));
+                antalSpilVundetTabt++;
+                gLogik.getAntalSpilVundetTabt().add(antalSpilVundetTabt);
+                Log.d("play", "antalSpilVundet = " + antalSpilVundetTabt);
+                antalSpilSpillet++;
+                gLogik.setAntalSpilSpillet(antalSpilSpillet);
             }
             else {
                 textField.setTextColor(Color.parseColor("#FF0000"));
                 iGameOver.startAnimation(fadeIn);
                 iGameOver.setVisibility(View.VISIBLE);
                 iGameOver.setBackground(getDrawable(R.drawable.deadface_icon));
+                antalSpilVundetTabt--;
+                gLogik.getAntalSpilVundetTabt().add(antalSpilVundetTabt);
+                Log.d("play", "antalSpilVundet = " + antalSpilVundetTabt);
+                antalSpilSpillet++;
+                gLogik.setAntalSpilSpillet(antalSpilSpillet);
             }
         }
     }
@@ -169,16 +196,5 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
         // Initialiserer gameover billedet
         iGameOver = findViewById(R.id.iGameOver);
-
-
-        // Logcat
-        Log.d("play","textField = " + gLogik.getSynligtOrd());
-        Log.d("play","textField = " + gLogik.getOrdet());
-        /*
-        for (int i = 0; i < keyboard.size(); i++) {
-            int b = i + 1;
-            Log.d("play", "b" + b + " = " + keyboard.get(i).getId());
-        }
-        */
     }
 }

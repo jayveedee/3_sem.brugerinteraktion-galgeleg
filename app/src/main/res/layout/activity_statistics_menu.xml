@@ -7,4 +7,17 @@
     android:background="@drawable/background_stats"
     tools:context=".StatisticsMenu">
 
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph"
+        android:layout_width="350dp"
+        android:layout_height="200dip"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="442dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

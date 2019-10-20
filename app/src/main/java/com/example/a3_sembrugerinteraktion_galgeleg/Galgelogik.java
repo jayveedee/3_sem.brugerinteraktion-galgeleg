@@ -16,12 +16,15 @@ public class Galgelogik {
   private ArrayList<String> brugteBogstaver = new ArrayList<String>();
   private String synligtOrd;
   private int antalForkerteBogstaver;
+  private int antalSpilSpillet = 0;
+  private ArrayList<Integer> antalSpilVundetTabt = new ArrayList<>();
   private boolean sidsteBogstavVarKorrekt;
   private boolean spilletErVundet;
   private boolean spilletErTabt;
   private static Galgelogik instance;
 
   public Galgelogik() {
+    antalSpilVundetTabt.add(0);
     muligeOrd.add("BIL");
     muligeOrd.add("COMPUTER");
     muligeOrd.add("PROGRAMMERING");
@@ -71,10 +74,25 @@ public class Galgelogik {
     return spilletErTabt;
   }
 
+  public int getAntalSpilSpillet() {
+    return antalSpilSpillet;
+  }
+
+  public void setAntalSpilSpillet(int antalSpilSpillet) {
+    this.antalSpilSpillet = antalSpilSpillet;
+  }
+
   public boolean erSpilletSlut() {
     return spilletErTabt || spilletErVundet;
   }
 
+  public ArrayList<Integer> getAntalSpilVundetTabt() {
+    return antalSpilVundetTabt;
+  }
+
+  public void setAntalSpilVundetTabt(ArrayList<Integer> antalSpilVundetTabt) {
+    this.antalSpilVundetTabt = antalSpilVundetTabt;
+  }
 
   public void nulstil() {
     brugteBogstaver.clear();
