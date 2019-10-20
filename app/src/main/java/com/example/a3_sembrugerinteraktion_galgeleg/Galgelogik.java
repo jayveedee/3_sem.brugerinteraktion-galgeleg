@@ -176,7 +176,7 @@ public class Galgelogik {
    */
 
   public void hentOrdFraRegneark(String sværhedsgrader) throws Exception {
-    String id = "1RnwU9KATJB94Rhr7nurvjxfg09wAHMZPYB3uySBPO6M";
+    String id = "1TYT4cwgluOF4IE2OBNkcQfaZmz7VLSMfbj0HYaVBsug";
 
     System.out.println("Henter data som kommasepareret CSV fra regnearket https://docs.google.com/spreadsheets/d/"+id+"/edit?usp=sharing");
 

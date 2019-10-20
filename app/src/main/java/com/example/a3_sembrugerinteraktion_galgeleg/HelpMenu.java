@@ -2,6 +2,7 @@ package com.example.a3_sembrugerinteraktion_galgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -79,7 +80,7 @@ public class HelpMenu extends AppCompatActivity implements View.OnClickListener 
     private String getDate() {
         long currentMillis = System.currentTimeMillis();
 
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss z");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss z");
         Date date = new Date(currentMillis);
 
         Log.d("help",  "date format = " + format.format(date));

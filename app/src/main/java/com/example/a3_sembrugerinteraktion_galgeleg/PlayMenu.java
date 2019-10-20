@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,13 +25,27 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private ImageView iGameOver;
     private Button bReset;
     private ConstraintLayout conLayout;
+    private Exception exception;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_menu);
+        new getRegnearkTekst().execute();
         initializeGame();
+    }
+
+    private class getRegnearkTekst extends AsyncTask<Void, Void, Void>{
+        @Override
+        protected Void doInBackground(Void... params){
+            try {
+                gLogik.hentOrdFraRegneark("1");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
     }
 
     @Override
