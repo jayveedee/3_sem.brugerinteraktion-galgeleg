@@ -2,28 +2,40 @@ package com.example.a3_sembrugerinteraktion_galgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class StatisticsMenu extends AppCompatActivity {
+public class StatisticsMenu extends AppCompatActivity implements View.OnClickListener {
 
     // Variabler
 
     private Galgelogik gLogik = Galgelogik.getInstance();
     private ArrayList<Integer> antalVundet = gLogik.getAntalSpilVundetTabt();
+    private ArrayList<Integer> highscores = gLogik.getHighscores();
     private int antalSpil = gLogik.getAntalSpilSpillet();
     private Runnable run;
+    private Button bChangeView;
     private LineGraphSeries series;
     private Handler handler = new Handler();
     private GraphView graph;
+    private BarChart barChart;
 
 
     @Override
@@ -36,6 +48,13 @@ public class StatisticsMenu extends AppCompatActivity {
         graph = findViewById(R.id.graph);
         graph.setTitle("Win / Lose Graph");
         graph.setTitleTextSize(75);
+
+        bChangeView = findViewById(R.id.bChangeView);
+        bChangeView.setText("Highscore");
+        bChangeView.setOnClickListener(this);
+
+        barChart = findViewById(R.id.barChart);
+        barChart.getDescription().setEnabled(false);
 
 
         // Logcat
@@ -74,9 +93,57 @@ public class StatisticsMenu extends AppCompatActivity {
                 graph.getViewport().setMinX(0);
                 graph.getViewport().setXAxisBoundsManual(true);
 
+                setData(10);
+                barChart.setFitBars(false);
+
                 handler.postDelayed(this,200);
+            }
+
+            private void setData(int highscoresCount) {
+                ArrayList<BarEntry> entryY = new ArrayList<>();
+
+                Collections.sort(highscores);
+                Collections.reverse(highscores);
+
+                for (int i = 0; i < highscoresCount; i++) {
+                    if (highscores.size() - 1 >= i) {
+                        BarEntry entry = new BarEntry(i, highscores.get(i));
+                        entryY.add(entry);
+                    }
+                }
+                BarDataSet dataset = new BarDataSet(entryY, "Highscores");
+                dataset.setColors(ColorTemplate.MATERIAL_COLORS);
+                dataset.setDrawValues(true);
+                dataset.setValueTextColor(Color.parseColor("#ffffff"));
+
+
+                BarData data = new BarData(dataset);
+                barChart.getAxisLeft().setTextColor(Color.parseColor("#ffffff"));
+                barChart.getAxisLeft().setTextSize(16);
+                barChart.getAxisRight().setTextColor(Color.parseColor("#ffffff"));
+                barChart.getAxisRight().setTextSize(16);
+                barChart.getXAxis().setTextColor(Color.parseColor("#ffffff"));
+                barChart.getXAxis().setTextSize(16);
+
+                barChart.setData(data);
+                barChart.invalidate();
+                barChart.animate();
             }
         };
         handler.postDelayed(run,10);
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void onClick(View v) {
+
+        if (bChangeView.getText().equals("Highscore")){
+            barChart.setVisibility(View.VISIBLE);
+            bChangeView.setText("Win / Lose");
+        }
+        else {
+            barChart.setVisibility(View.INVISIBLE);
+            bChangeView.setText("Highscore");
+        }
     }
 }

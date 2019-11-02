@@ -17,6 +17,8 @@ public class Galgelogik {
   private String synligtOrd;
   private int antalForkerteBogstaver;
   private int antalSpilSpillet = 0;
+  private int currentScore = 0;
+  private ArrayList<Integer> highscores = new ArrayList<>();
   private ArrayList<Integer> antalSpilVundetTabt = new ArrayList<>();
   private boolean sidsteBogstavVarKorrekt;
   private boolean spilletErVundet;
@@ -47,6 +49,38 @@ public class Galgelogik {
     return instance;
   }
 
+  public ArrayList<Integer> getHighscores() {
+    return highscores;
+  }
+
+  public void setHighscores(ArrayList<Integer> highscores) {
+    this.highscores = highscores;
+  }
+
+  public void updateScore(){
+    if (erSidsteBogstavKorrekt()){
+      this.currentScore += 10;
+    }
+    else {
+      this.currentScore += -10;
+    }
+    if (erSpilletSlut()){
+      if (spilletErVundet){
+          this.currentScore += 100;
+      }
+      else {
+        this.currentScore += -100;
+      }
+    }
+  }
+
+  public int getCurrentScore() {
+    return currentScore;
+  }
+
+  public void setCurrentScore(int currentScore) {
+    this.currentScore = currentScore;
+  }
 
   public ArrayList<String> getBrugteBogstaver() {
     return brugteBogstaver;

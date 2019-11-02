@@ -528,12 +528,29 @@
         android:layout_marginTop="485dp"
         android:layout_marginEnd="133dp"
         android:layout_marginBottom="30dp"
+        android:contentDescription="winning image"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="winning image"
         tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tScore"
+        android:layout_width="170dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginBottom="321dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#00BCD4"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

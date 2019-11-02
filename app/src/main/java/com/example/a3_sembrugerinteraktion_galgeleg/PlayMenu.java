@@ -23,7 +23,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private ArrayList<Button> keyboard = new ArrayList<>();
     private String frameSTR = "";
     private String bokstav = "";
-    private TextView textField;
+    private TextView textField, tScore;
     private ImageView iGameOver;
     private Button bReset;
     private ConstraintLayout conLayout;
@@ -48,6 +48,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         Log.d("play","GameOver = " + gameOver);
         Log.d("play","textField = " + gLogik.getSynligtOrd());
         Log.d("play","textField = " + gLogik.getOrdet());
+        Log.d("play", "score = " + gLogik.getCurrentScore());
         /*
         for (int i = 0; i < keyboard.size(); i++) {
             int b = i + 1;
@@ -86,6 +87,9 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
                     gLogik.gætBogstav(bokstav);
                     textField.setText(gLogik.getSynligtOrd());
 
+                    gLogik.updateScore();
+                    tScore.setText(Integer.toString(gLogik.getCurrentScore()));
+
                     // Hvis det var den forkerte bokstav, opdateres baggrunden
 
                     if (!gLogik.erSidsteBogstavKorrekt()){
@@ -105,7 +109,12 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
             if (v == bReset){
 
                 conLayout.setBackground(getDrawable(R.drawable.frame00));
+                if (gLogik.erSpilletTabt()){
+                    gLogik.getHighscores().add(gLogik.getCurrentScore());
+                    gLogik.setCurrentScore(0);
+                }
                 gLogik.nulstil();
+                tScore.setText(Integer.toString(gLogik.getCurrentScore()));
 
                 textField.setText(gLogik.getSynligtOrd());
                 textField.setTextColor(Color.parseColor("#FF0000"));
@@ -213,5 +222,9 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
         // Initialiserer gameover billedet
         iGameOver = findViewById(R.id.iGameOver);
+
+        // Initialiserer highscore updater
+        tScore = findViewById(R.id.tScore);
+        tScore.setText(Integer.toString(gLogik.getCurrentScore()));
     }
 }
