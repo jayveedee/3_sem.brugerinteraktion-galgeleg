@@ -77,6 +77,10 @@ public class MainMenu extends AppCompatActivity {
         Type type = new TypeToken<ArrayList<Integer>>(){}.getType();
         ArrayList<Integer> savedData = gson.fromJson(json,type);
         gLogik.setHighscores(savedData);
+        if (savedData == null){
+            savedData = new ArrayList<>();
+            gLogik.setHighscores(savedData);
+        }
     }
     private void getLocalData2(String key) {
         Gson gson = new Gson();
@@ -84,6 +88,10 @@ public class MainMenu extends AppCompatActivity {
         Type type = new TypeToken<ArrayList<Integer>>(){}.getType();
         ArrayList<Integer> savedData = gson.fromJson(json,type);
         gLogik.setAntalSpilVundetTabt(savedData);
+        if (savedData == null){
+            savedData = new ArrayList<>();
+            gLogik.setAntalSpilVundetTabt(savedData);
+        }
     }
     private void getLocalData3(String key) {
         String json = mPref.getString(key,"0");

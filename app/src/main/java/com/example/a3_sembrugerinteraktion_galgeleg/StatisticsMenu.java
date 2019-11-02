@@ -84,81 +84,86 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
         Runnable run = new Runnable() {
             @Override
             public void run() {
-                if (!(antalVundet == null || antalSpil == 0)){
-                    series = new LineGraphSeries<DataPoint>();
-                    double x, y;
-                    for (int i = 0; i <= antalSpil; i++) {
-
-                        y = antalVundet.get(i);
-                        x = i;
-
-                        series.appendData(new DataPoint(x, y), true, 40);
-
-                        // Indsætter dataet på viewet som en graf og definerer farver osv.
-
-                        graph.addSeries(series);
-                        series.setColor(Color.GREEN);
-                        series.setDrawDataPoints(true);
-                        series.setDataPointsRadius(10);
-                        series.setThickness(8);
-
-                        graph.getViewport().setMinX(0);
-                        graph.getViewport().setXAxisBoundsManual(true);
-                    }
+                if (antalVundet != null){
+                    setDataWinLose();
                 }
-
-                if (!(highscores == null)){
-                    setData();
+                if (highscores != null){
+                    setDataHighscore();
                 }
-                barChart.setFitBars(false);
-
                 handler.postDelayed(this, 200);
-            }
-
-            private void setData() {
-                ArrayList<BarEntry> entryY = new ArrayList<>();
-
-                Collections.sort(highscores);
-                Collections.reverse(highscores);
-
-                for (int i = 0; i < 10; i++) {
-                    if (highscores.size() - 1 >= i) {
-                        BarEntry entry = new BarEntry(i + 1, highscores.get(i));
-                        entryY.add(entry);
-                    }
-                }
-                BarDataSet dataset = new BarDataSet(entryY, "Highscores");
-                dataset.setColors(ColorTemplate.MATERIAL_COLORS);
-                dataset.setDrawValues(true);
-                dataset.setValueTextColor(Color.parseColor("#ffffff"));
-                dataset.setValueTextSize(16);
-                dataset.setBarBorderWidth(10f);
-
-                BarData data = new BarData(dataset);
-                barChart.getAxisLeft().setTextColor(Color.parseColor("#ffffff"));
-                barChart.getAxisLeft().setTextSize(16);
-                barChart.getXAxis().setTextColor(Color.parseColor("#ffffff"));
-                barChart.getXAxis().setTextSize(16);
-
-                barChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-                barChart.getXAxis().setCenterAxisLabels(true);
-                barChart.getXAxis().setGranularity(1f);
-                barChart.getXAxis().setDrawGridLines(false);
-
-                barChart.getAxisLeft().setDrawGridLines(false);
-                barChart.getAxisLeft().setGranularity(2);
-                barChart.getAxisLeft().setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
-
-
-                barChart.setData(data);
-                barChart.getLegend().setEnabled(false);
-                barChart.getAxisRight().setEnabled(false);
-                barChart.setDrawValueAboveBar(true);
-                barChart.invalidate();
-                barChart.animate();
             }
         };
         handler.postDelayed(run,10);
+    }
+
+    private void setDataHighscore() {
+        ArrayList<BarEntry> entryY = new ArrayList<>();
+
+        Collections.sort(highscores);
+        Collections.reverse(highscores);
+
+        for (int i = 0; i < 10; i++) {
+            if (highscores.size() - 1 >= i) {
+                BarEntry entry = new BarEntry(i + 1, highscores.get(i));
+                entryY.add(entry);
+            }
+        }
+        BarDataSet dataset = new BarDataSet(entryY, "Highscores");
+        dataset.setColors(ColorTemplate.MATERIAL_COLORS);
+        dataset.setDrawValues(true);
+        dataset.setValueTextColor(Color.parseColor("#ffffff"));
+        dataset.setValueTextSize(16);
+        dataset.setBarBorderWidth(10f);
+
+        BarData data = new BarData(dataset);
+        barChart.getAxisLeft().setTextColor(Color.parseColor("#ffffff"));
+        barChart.getAxisLeft().setTextSize(16);
+        barChart.getXAxis().setTextColor(Color.parseColor("#ffffff"));
+        barChart.getXAxis().setTextSize(16);
+
+        barChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        barChart.getXAxis().setCenterAxisLabels(true);
+        barChart.getXAxis().setGranularity(1f);
+        barChart.getXAxis().setDrawGridLines(false);
+
+        barChart.getAxisLeft().setDrawGridLines(false);
+        barChart.getAxisLeft().setGranularity(2);
+        barChart.getAxisLeft().setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
+
+
+        barChart.setData(data);
+        barChart.getLegend().setEnabled(false);
+        barChart.getAxisRight().setEnabled(false);
+        barChart.setDrawValueAboveBar(true);
+        barChart.setFitBars(false);
+        barChart.invalidate();
+        barChart.animate();
+    }
+
+    private void setDataWinLose() {
+        Log.d("stats","etf" + antalVundet.size());
+        if (antalSpil >= 0 && antalVundet.size() > 0){
+            series = new LineGraphSeries();
+            double x, y;
+            for (int i = 0; i <= antalSpil ; i++) {
+                Log.d("stats","wtf");
+                y = antalVundet.get(i);
+                x = i;
+
+                series.appendData(new DataPoint(x, y), true, 40);
+
+                // Indsætter dataet på viewet som en graf og definerer farver osv.
+
+                graph.addSeries(series);
+                series.setColor(Color.GREEN);
+                series.setDrawDataPoints(true);
+                series.setDataPointsRadius(10);
+                series.setThickness(8);
+
+                graph.getViewport().setMinX(0);
+                graph.getViewport().setXAxisBoundsManual(true);
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -184,6 +189,12 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
 
             mEdit.clear();
             mEdit.commit();
+
+            setDataHighscore();
+            setDataWinLose();
+
+            barChart = findViewById(R.id.barChart);
+            graph = findViewById(R.id.graph);
         }
     }
 }
