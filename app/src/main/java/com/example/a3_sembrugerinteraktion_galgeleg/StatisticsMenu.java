@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -107,7 +109,7 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
 
                 for (int i = 0; i < highscoresCount; i++) {
                     if (highscores.size() - 1 >= i) {
-                        BarEntry entry = new BarEntry(i, highscores.get(i));
+                        BarEntry entry = new BarEntry(i + 1, highscores.get(i));
                         entryY.add(entry);
                     }
                 }
@@ -115,17 +117,29 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
                 dataset.setColors(ColorTemplate.MATERIAL_COLORS);
                 dataset.setDrawValues(true);
                 dataset.setValueTextColor(Color.parseColor("#ffffff"));
-
+                dataset.setValueTextSize(16);
+                dataset.setBarBorderWidth(10f);
 
                 BarData data = new BarData(dataset);
                 barChart.getAxisLeft().setTextColor(Color.parseColor("#ffffff"));
                 barChart.getAxisLeft().setTextSize(16);
-                barChart.getAxisRight().setTextColor(Color.parseColor("#ffffff"));
-                barChart.getAxisRight().setTextSize(16);
                 barChart.getXAxis().setTextColor(Color.parseColor("#ffffff"));
                 barChart.getXAxis().setTextSize(16);
 
+                barChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+                barChart.getXAxis().setCenterAxisLabels(true);
+                barChart.getXAxis().setGranularity(1f);
+                barChart.getXAxis().setDrawGridLines(false);
+
+                barChart.getAxisLeft().setDrawGridLines(false);
+                barChart.getAxisLeft().setGranularity(2);
+                barChart.getAxisLeft().setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
+
+
                 barChart.setData(data);
+                barChart.getLegend().setEnabled(false);
+                barChart.getAxisRight().setEnabled(false);
+                barChart.setDrawValueAboveBar(true);
                 barChart.invalidate();
                 barChart.animate();
             }

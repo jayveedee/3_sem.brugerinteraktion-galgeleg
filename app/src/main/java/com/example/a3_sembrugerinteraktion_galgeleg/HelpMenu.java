@@ -39,7 +39,11 @@ public class HelpMenu extends AppCompatActivity implements View.OnClickListener 
         tDate = findViewById(R.id.tDate);
 
         // Laver et Runnable objekt til at håndtere klokken
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
         final Runnable updateClock = new Runnable() {
             @Override
             public void run() {
@@ -49,7 +53,6 @@ public class HelpMenu extends AppCompatActivity implements View.OnClickListener 
         };
         handler.postDelayed(updateClock,1);
     }
-
     @Override
     public void onClick(View v) {
 
