@@ -50,4 +50,24 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
+    <Button
+        android:id="@+id/bReset"
+        android:layout_width="50sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="293dp"
+        android:layout_marginEnd="345dp"
+        android:layout_marginBottom="326dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#E91E63"
+        android:onClick="onClick"
+        android:text="Reset"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

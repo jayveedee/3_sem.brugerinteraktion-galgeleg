@@ -3,6 +3,7 @@ package com.example.a3_sembrugerinteraktion_galgeleg;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,11 +33,13 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
     private ArrayList<Integer> antalVundet = gLogik.getAntalSpilVundetTabt();
     private ArrayList<Integer> highscores = gLogik.getHighscores();
     private int antalSpil = gLogik.getAntalSpilSpillet();
-    private Button bChangeView;
+    private Button bChangeView, bReset;
     private LineGraphSeries<DataPoint> series;
     private Handler handler = new Handler();
     private GraphView graph;
     private BarChart barChart;
+    private SharedPreferences mPref;
+    private SharedPreferences.Editor mEdit;
 
 
     @SuppressLint("SetTextI18n")
@@ -58,6 +61,11 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
         barChart = findViewById(R.id.barChart);
         barChart.getDescription().setEnabled(false);
 
+        bReset = findViewById(R.id.bReset);
+        bReset.setOnClickListener(this);
+
+        mPref = getSharedPreferences("galgeleg.data",MODE_PRIVATE);
+        mEdit = mPref.edit();
 
         // Logcat
 
@@ -157,13 +165,25 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        if (bChangeView.getText().equals("Highscore")){
-            barChart.setVisibility(View.VISIBLE);
-            bChangeView.setText("Win / Lose");
+        if (v == bChangeView){
+            if (bChangeView.getText().equals("Highscore")){
+                barChart.setVisibility(View.VISIBLE);
+                bChangeView.setText("Win / Lose");
+            }
+            else {
+                barChart.setVisibility(View.INVISIBLE);
+                bChangeView.setText("Highscore");
+            }
         }
-        else {
-            barChart.setVisibility(View.INVISIBLE);
-            bChangeView.setText("Highscore");
+        if (v == bReset){
+            ArrayList<Integer> emptyList = new ArrayList<>();
+            gLogik.nulstil();
+            gLogik.setAntalSpilSpillet(0);
+            gLogik.setAntalSpilVundetTabt(emptyList);
+            gLogik.setHighscores(emptyList);
+
+            mEdit.clear();
+            mEdit.commit();
         }
     }
 }

@@ -24,8 +24,8 @@ public class MainMenu extends AppCompatActivity {
     Button bStart;
     ImageView iHjaelp;
     Galgelogik gLogik = Galgelogik.getInstance();
-    SharedPreferences mPref;
-    SharedPreferences.Editor mEdit;
+    public SharedPreferences mPref;
+    public SharedPreferences.Editor mEdit;
 
     @SuppressLint("CommitPrefEdits")
     @Override
