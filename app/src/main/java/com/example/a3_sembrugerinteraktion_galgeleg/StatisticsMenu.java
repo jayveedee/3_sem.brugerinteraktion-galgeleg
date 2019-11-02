@@ -141,16 +141,15 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
     }
 
     private void setDataWinLose() {
-        Log.d("stats","etf" + antalVundet.size());
         if (antalSpil >= 0 && antalVundet.size() > 0){
             series = new LineGraphSeries();
             double x, y;
-            for (int i = 0; i <= antalSpil ; i++) {
-                Log.d("stats","wtf");
+            for (int i = 0; i <= antalSpil; i++) {
+
                 y = antalVundet.get(i);
                 x = i;
 
-                series.appendData(new DataPoint(x, y), true, 40);
+                series.appendData(new DataPoint(x, y), true, 70);
 
                 // Indsætter dataet på viewet som en graf og definerer farver osv.
 
