@@ -4,11 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -17,19 +24,26 @@ public class MainMenu extends AppCompatActivity {
     Button bStart;
     ImageView iHjaelp;
     Galgelogik gLogik = Galgelogik.getInstance();
+    SharedPreferences mPref;
+    SharedPreferences.Editor mEdit;
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Thejjer hvilken knap der bliver brugt
+        mPref = getSharedPreferences("galgeleg.data",MODE_PRIVATE);
+        mEdit = mPref.edit();
+
+        // Thjekker hvilken knap der bliver brugt
 
         bStart = findViewById(R.id.bStart); bStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainMenu.this, PlayMenu.class));
                 gLogik.nulstil();
+                gLogik.setCurrentScore(0);
             }
         });
 
@@ -44,6 +58,10 @@ public class MainMenu extends AppCompatActivity {
         iStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                getLocalData1("highscore");
+                getLocalData2("spilvundettabt");
+                getLocalData3("spilspillet");
                 startActivity(new Intent(MainMenu.this, StatisticsMenu.class));
             }
         });
@@ -52,6 +70,27 @@ public class MainMenu extends AppCompatActivity {
 
         new Regneark().execute();
     }
+
+    private void getLocalData1(String key) {
+        Gson gson = new Gson();
+        String json = mPref.getString(key,null);
+        Type type = new TypeToken<ArrayList<Integer>>(){}.getType();
+        ArrayList<Integer> savedData = gson.fromJson(json,type);
+        gLogik.setHighscores(savedData);
+    }
+    private void getLocalData2(String key) {
+        Gson gson = new Gson();
+        String json = mPref.getString(key,null);
+        Type type = new TypeToken<ArrayList<Integer>>(){}.getType();
+        ArrayList<Integer> savedData = gson.fromJson(json,type);
+        gLogik.setAntalSpilVundetTabt(savedData);
+    }
+    private void getLocalData3(String key) {
+        String json = mPref.getString(key,"0");
+        int savedDate = Integer.parseInt(json);
+        gLogik.setAntalSpilSpillet(savedDate);
+    }
+
     private class Regneark extends AsyncTask<Void, Void, Void> {
         @SuppressLint("WrongThread")
         @Override

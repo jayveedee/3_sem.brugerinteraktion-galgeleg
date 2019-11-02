@@ -3,6 +3,8 @@ package com.example.a3_sembrugerinteraktion_galgeleg;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -28,6 +32,8 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private Button bReset;
     private ConstraintLayout conLayout;
     private boolean gameOver;
+    private SharedPreferences mPref;
+    private SharedPreferences.Editor mEdit;
 
 
     @Override
@@ -65,7 +71,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         gameOver = gLogik.erSpilletSlut();
         int antalSpilSpillet = gLogik.getAntalSpilSpillet();
         int antalSpilVundetTabt;
-        if (gLogik.getAntalSpilVundetTabt().size() > 0) {
+        if (gLogik.getAntalSpilVundetTabt() != null && gLogik.getAntalSpilVundetTabt().size() > 0) {
             antalSpilVundetTabt = gLogik.getAntalSpilVundetTabt().get(gLogik.getAntalSpilVundetTabt().size() - 1);
         }
         else {
@@ -110,7 +116,12 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
                 conLayout.setBackground(getDrawable(R.drawable.frame00));
                 if (gLogik.erSpilletTabt()){
+                    if (gLogik.getHighscores() == null){
+                        ArrayList<Integer> highscores = new ArrayList<>();
+                        gLogik.setHighscores(highscores);
+                    }
                     gLogik.getHighscores().add(gLogik.getCurrentScore());
+                    saveDataLocally(gLogik.getHighscores(),"highscore");
                     gLogik.setCurrentScore(0);
                 }
                 gLogik.nulstil();
@@ -134,6 +145,19 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         // Når spillet slutter for første gang, vil der ske en animation og nogle ændringer der bliver lavet i metoden nedenfor
 
         if (gLogik.getAntalForkerteBogstaver() >= 6 || gLogik.erSpilletVundet()) checkIfGameOver(antalSpilVundetTabt, antalSpilSpillet);
+    }
+
+    private void saveDataLocally(ArrayList<Integer> arrList, String key) {
+        Gson gson = new Gson();
+        String json = gson.toJson(arrList);
+        mEdit.putString(key, json);
+        mEdit.apply();
+    }
+    private void saveDataLocally(int number, String key) {
+        Gson gson = new Gson();
+        String json = gson.toJson(number);
+        mEdit.putString(key, json);
+        mEdit.apply();
     }
 
     private void checkIfGameOver(int antalSpilVundetTabt, int antalSpilSpillet) {
@@ -172,9 +196,11 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
             antalSpilVundetTabt++;
             gLogik.getAntalSpilVundetTabt().add(antalSpilVundetTabt);
+            saveDataLocally(gLogik.getAntalSpilVundetTabt(),"spilvundettabt");
 
             antalSpilSpillet++;
             gLogik.setAntalSpilSpillet(antalSpilSpillet);
+            saveDataLocally(gLogik.getAntalSpilSpillet(),"spilspillet");
         }
         else {
 
@@ -188,12 +214,15 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
             antalSpilVundetTabt--;
             gLogik.getAntalSpilVundetTabt().add(antalSpilVundetTabt);
+            saveDataLocally(gLogik.getAntalSpilVundetTabt(),"spilvundettabt");
 
             antalSpilSpillet++;
             gLogik.setAntalSpilSpillet(antalSpilSpillet);
+            saveDataLocally(gLogik.getAntalSpilSpillet(),"spilspillet");
         }
     }
 
+    @SuppressLint("CommitPrefEdits")
     private void initializeGame() {
 
         // Initialiserer knapper
@@ -226,5 +255,15 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         // Initialiserer highscore updater
         tScore = findViewById(R.id.tScore);
         tScore.setText(Integer.toString(gLogik.getCurrentScore()));
+
+        // Initialiserer sharedpreference, som gemmer data
+        mPref = getSharedPreferences("galgeleg.data",MODE_PRIVATE);
+        mEdit = mPref.edit();
+
+
+        if (gLogik.getAntalSpilVundetTabt() == null){
+            ArrayList spilvundet = new ArrayList();
+            gLogik.setAntalSpilVundetTabt(spilvundet);
+        }
     }
 }

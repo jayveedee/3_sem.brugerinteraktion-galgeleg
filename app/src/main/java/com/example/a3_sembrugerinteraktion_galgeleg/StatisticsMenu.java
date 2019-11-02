@@ -32,14 +32,14 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
     private ArrayList<Integer> antalVundet = gLogik.getAntalSpilVundetTabt();
     private ArrayList<Integer> highscores = gLogik.getHighscores();
     private int antalSpil = gLogik.getAntalSpilSpillet();
-    private Runnable run;
     private Button bChangeView;
-    private LineGraphSeries series;
+    private LineGraphSeries<DataPoint> series;
     private Handler handler = new Handler();
     private GraphView graph;
     private BarChart barChart;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +61,7 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
 
         // Logcat
 
-        if (antalVundet.size() > 0) {
+        if (antalVundet != null && antalVundet.size() > 0) {
             Log.d("stats","antalVundet = " + (gLogik.getAntalSpilVundetTabt().get(antalVundet.size() - 1)));
         }
         Log.d("stats","antalSpil = " + antalSpil);
@@ -71,43 +71,49 @@ public class StatisticsMenu extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onResume(){
         super.onResume();
-        run = new Runnable() {
+        // Indsætter dataet på viewet som en graf og definerer farver osv.
+
+        Runnable run = new Runnable() {
             @Override
             public void run() {
-                series = new LineGraphSeries();
-                double x, y;
-                for (int i = 0; i <= antalSpil; i++) {
+                if (!(antalVundet == null || antalSpil == 0)){
+                    series = new LineGraphSeries<DataPoint>();
+                    double x, y;
+                    for (int i = 0; i <= antalSpil; i++) {
 
-                    y = antalVundet.get(i);
-                    x = i;
+                        y = antalVundet.get(i);
+                        x = i;
 
-                    series.appendData(new DataPoint(x,y),true,40);
+                        series.appendData(new DataPoint(x, y), true, 40);
+
+                        // Indsætter dataet på viewet som en graf og definerer farver osv.
+
+                        graph.addSeries(series);
+                        series.setColor(Color.GREEN);
+                        series.setDrawDataPoints(true);
+                        series.setDataPointsRadius(10);
+                        series.setThickness(8);
+
+                        graph.getViewport().setMinX(0);
+                        graph.getViewport().setXAxisBoundsManual(true);
+                    }
                 }
 
-                // Indsætter dataet på viewet som en graf og definerer farver osv.
-
-                graph.addSeries(series);
-                series.setColor(Color.GREEN);
-                series.setDrawDataPoints(true);
-                series.setDataPointsRadius(10);
-                series.setThickness(8);
-
-                graph.getViewport().setMinX(0);
-                graph.getViewport().setXAxisBoundsManual(true);
-
-                setData(10);
+                if (!(highscores == null)){
+                    setData();
+                }
                 barChart.setFitBars(false);
 
-                handler.postDelayed(this,200);
+                handler.postDelayed(this, 200);
             }
 
-            private void setData(int highscoresCount) {
+            private void setData() {
                 ArrayList<BarEntry> entryY = new ArrayList<>();
 
                 Collections.sort(highscores);
                 Collections.reverse(highscores);
 
-                for (int i = 0; i < highscoresCount; i++) {
+                for (int i = 0; i < 10; i++) {
                     if (highscores.size() - 1 >= i) {
                         BarEntry entry = new BarEntry(i + 1, highscores.get(i));
                         entryY.add(entry);
