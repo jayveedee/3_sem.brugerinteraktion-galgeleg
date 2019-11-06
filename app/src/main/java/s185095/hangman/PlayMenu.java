@@ -1,8 +1,6 @@
 package s185095.hangman;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -14,6 +12,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.gson.Gson;
 
@@ -244,6 +245,8 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
             gamesPlayed++;
             logic.setGamesPlayed(gamesPlayed);
+
+            startActivity(new Intent(PlayMenu.this, PlayWinLoseMenu.class));
         }
 
         saveSharedData(logic.getListOfWinsLosses(), sPKeyWL);

@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="s185095.hangman">
 
-    <uses-permission
-        android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".PlayWinLoseMenu"></activity>
         <activity android:name=".AboutMenu" />
         <activity android:name=".StatsMenu" />
         <activity android:name=".PlayMenu" />
