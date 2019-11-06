@@ -211,10 +211,6 @@ public class Hangman {
         return visibleWord;
     }
 
-    public void setVisibleWord(String visibleWord) {
-        this.visibleWord = visibleWord;
-    }
-
     public String getCurrLetter() {
         return currLetter;
     }
