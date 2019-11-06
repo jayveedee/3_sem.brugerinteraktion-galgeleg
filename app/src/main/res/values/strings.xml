@@ -1,9 +1,3 @@
 <resources>
-    <string name="app_name">S185095 Galgeleg</string>
-    <string name="hangman">Hangman</string>
-    <string name="start">Start</string>
-    <string name="play">Play</string>
-    <string name="reset">Reset</string>
-    <string name="statistik_knap">Statistik knap</string>
-    <string name="about">About</string>
+    <string name="app_name">Hangman</string>
 </resources>

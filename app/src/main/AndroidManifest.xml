@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.a3_sembrugerinteraktion_galgeleg">
+    package="s185095.hangman">
 
     <uses-permission
         android:name="android.permission.INTERNET"/>
@@ -14,8 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".StatisticsMenu"></activity>
-        <activity android:name=".HelpMenu" />
+        <activity android:name=".AboutMenu" />
+        <activity android:name=".StatsMenu" />
         <activity android:name=".PlayMenu" />
         <activity android:name=".MainMenu">
             <intent-filter>
