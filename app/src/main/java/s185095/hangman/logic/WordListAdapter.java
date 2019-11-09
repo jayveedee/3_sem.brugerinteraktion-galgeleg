@@ -65,6 +65,10 @@ public class WordListAdapter extends ArrayAdapter<Result> {
             tWord.setTextColor(Color.parseColor("#00BCD4"));
             tGuess.setTextColor(Color.parseColor("#00BCD4"));
         }
+        if (quitter){
+            tWord.setTextColor(Color.parseColor("#909090"));
+            tGuess.setTextColor(Color.parseColor("#909090"));
+        }
         return convertView;
     }
 }
