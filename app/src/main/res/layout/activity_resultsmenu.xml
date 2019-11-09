@@ -11,53 +11,83 @@
         android:id="@+id/tCurrentScoreTitle"
         android:layout_width="240dp"
         android:layout_height="40dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginBottom="506dp"
         android:text="CURRENT SCORE"
         android:textAlignment="center"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="113dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/tCurrentScoreTitle2"
+        android:id="@+id/tWordList"
         android:layout_width="300dp"
         android:layout_height="55dp"
-        android:text="PREVIOUS CORRECT ANSWERS"
+        android:layout_marginTop="202dp"
+        android:layout_marginBottom="402dp"
+        android:text="PREVIOUS CORRECT/WRONG ANSWERS"
         android:textAlignment="center"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="203dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/tCurrentWordTitle2"
+        android:id="@+id/tCurrentWordTitle"
         android:layout_width="240dp"
         android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="603dp"
         android:text="CURRENT WORD"
         android:textAlignment="center"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tCurrentWord"
-        android:layout_width="160dp"
+        android:layout_width="180dp"
         android:layout_height="30dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="561dp"
         android:text="Current Word"
         android:textAlignment="center"
         android:textColor="#F44336"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="68dp" />
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/tCurrentWord2"
+        android:id="@+id/tCurrentScore"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:layout_marginTop="153dp"
+        android:layout_marginBottom="456dp"
         android:text="0"
         android:textAlignment="center"
         android:textColor="#03A9F4"
         android:textSize="36sp"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="153dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <ListView
         android:id="@+id/listView"

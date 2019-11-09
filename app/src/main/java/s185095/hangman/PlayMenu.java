@@ -37,6 +37,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private SharedPreferences.Editor sEdit;
     private String sPKey, sPKeyHS, sPKeyWL, sPKeyG, sPKeyRS;
     private int gamesPlayed, winLose;
+    private boolean resultActivityPlaying;
 
 
     @Override
@@ -119,9 +120,10 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
             }
             if (v == bResults){
                 startActivity(new Intent(PlayMenu.this, ResultsMenu.class));
+                resultActivityPlaying = true;
             }
         }
-        if (logic.isGameOver()){
+        if (logic.isGameOver() && !resultActivityPlaying){
             if (logic.getCurrScore() != 0){
                 checkIfGameIsWonOrLost();
             }
@@ -133,6 +135,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     protected void onResume() {
         super.onResume();
         debugMessages();
+        resultActivityPlaying = false;
     }
 
     @Override
@@ -142,6 +145,9 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
             logic.getListOfHighscores().add(logic.getCurrScore());
             saveSharedData(logic.getListOfHighscores(), sPKeyHS);
             logic.setCurrScore(0);
+
+            Result result = new Result(logic.getWrongGuesses(),logic.getCurrWord(), true);
+            logic.getListOfResults().add(result);
         }
     }
 
@@ -231,13 +237,15 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
             logic.getListOfHighscores().add(logic.getCurrScore());
             saveSharedData(logic.getListOfHighscores(), sPKeyHS);
-            logic.setCurrScore(0);
 
             winLose--;
             logic.getListOfWinsLosses().add(winLose);
 
             gamesPlayed++;
             logic.setGamesPlayed(gamesPlayed);
+
+            Result result = new Result(logic.getWrongGuesses(),logic.getCurrWord(), false);
+            logic.getListOfResults().add(result);
         }
         else {
             tWord.setTextColor(Color.parseColor("#8BC34A"));
@@ -250,9 +258,10 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
             gamesPlayed++;
             logic.setGamesPlayed(gamesPlayed);
+
+            Result result = new Result(logic.getWrongGuesses(),logic.getCurrWord(), false);
+            logic.getListOfResults().add(result);
         }
-        Result result = new Result(logic.getWrongGuesses(),logic.getCurrWord());
-        logic.getListOfResults().add(result);
 
         saveSharedData(logic.getListOfResults(),sPKeyRS);
         saveSharedData(logic.getListOfWinsLosses(), sPKeyWL);

@@ -48,6 +48,9 @@ public class Hangman {
 
     /** RESTARTS THE GAME */
     public void restartGame(){
+        if (wrongGuesses == 6){
+            currScore = 0;
+        }
         listOfLettersInWord.clear();
         wrongGuesses = 0;
         currLetter = "";
@@ -60,6 +63,7 @@ public class Hangman {
     public void resetGame(){
         listOfWinsLosses.clear();
         listOfHighscores.clear();
+        listOfResults.clear();
         gamesPlayed = 0;
         listOfWinsLosses.add(0);
     }

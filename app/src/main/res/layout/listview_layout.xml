@@ -8,15 +8,14 @@
 
     <TextView
         android:id="@+id/tGuesses"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="X Guesses"
-        android:textAllCaps="true"
-        android:textColor="@color/colorScoreCyan"
-        android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="66.6"
+        android:gravity="center"
+        android:text="X Guesses"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="20sp"
         tools:ignore="HardcodedText" />
 
     <LinearLayout
@@ -28,7 +27,6 @@
         <TextView
             android:id="@+id/tWord"
             android:text="Word"
-            android:textColor="@color/colorWinGreen"
             android:textAllCaps="true"
             android:textSize="24sp"
             android:gravity="center"

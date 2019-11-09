@@ -19,6 +19,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import s185095.hangman.logic.Hangman;
+import s185095.hangman.logic.Result;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener {
 
@@ -62,6 +63,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         Log.d("main", "highscoresList: " + logic.getListOfHighscores());
         Log.d("main", "winLossesList: " + logic.getListOfWinsLosses());
         Log.d("main", "gamesPlayed: " + logic.getGamesPlayed());
+        Log.d("main", "Results: " + logic.getListOfResults());
     }
 
     /** THREE THINGS TO CLICK ON AND THREE DIFFERENT OUTCOMES */
@@ -111,6 +113,14 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
             logic.setGamesPlayed(sharedData);
         }
         if (key.equals(sPkeyRS)){
+            String json = sPref.getString(key,null);
+            Type type = new TypeToken<ArrayList<Result>>(){}.getType();
+            ArrayList<Result> sharedDate = gson.fromJson(json, type);
+            logic.setListOfResults(sharedDate);
+            if (sharedDate == null){
+                ArrayList<Result> emptyList = new ArrayList<>();
+                logic.setListOfResults(emptyList);
+            }
 
         }
     }

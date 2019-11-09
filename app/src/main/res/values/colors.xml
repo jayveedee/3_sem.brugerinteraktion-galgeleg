@@ -3,4 +3,9 @@
     <color name="colorLoseRed">#FF0000</color>
     <color name="colorWinGreen">#8BC34A</color>
     <color name="colorScoreCyan">#00BCD4</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="bStartBak">#3A383D</color>
+    <color name="tint">#FF0000</color>
 </resources>
