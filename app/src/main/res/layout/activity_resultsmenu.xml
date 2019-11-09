@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context="s185095.hangman.ResultsMenu">
+
+    <TextView
+        android:id="@+id/tCurrentScoreTitle"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:text="CURRENT SCORE"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+    <TextView
+        android:id="@+id/tCurrentScoreTitle2"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:text="PREVIOUS CORRECT ANSWERS"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="203dp" />
+
+    <TextView
+        android:id="@+id/tCurrentWordTitle2"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:text="CURRENT WORD"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/tCurrentWord"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:text="Current Word"
+        android:textAlignment="center"
+        android:textColor="#F44336"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <TextView
+        android:id="@+id/tCurrentWord2"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#03A9F4"
+        android:textSize="36sp"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="153dp" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="409dp"
+        android:layout_height="386dp"
+        android:background="#2D504B4B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

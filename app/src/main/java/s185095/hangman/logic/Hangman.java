@@ -17,6 +17,7 @@ public class Hangman {
     private List<String> listOfLettersInWord;
     private List<Integer> listOfHighscores;
     private List<Integer> listOfWinsLosses;
+    private List<Result> listOfResults;
     private String currWord;
     private String visibleWord;
     private String currLetter;
@@ -33,6 +34,7 @@ public class Hangman {
         listOfLettersInWord = new ArrayList<>();
         listOfHighscores = new ArrayList<>();
         listOfWinsLosses = new ArrayList<>();
+        listOfResults = new ArrayList<>();
         listOfWinsLosses.add(0);
         gamesPlayed = 0;
         listOfWords.add("FILLERWORD");
@@ -241,5 +243,13 @@ public class Hangman {
 
     public void setCurrScore(int currScore) {
         this.currScore = currScore;
+    }
+
+    public List<Result> getListOfResults() {
+        return listOfResults;
+    }
+
+    public void setListOfResults(List<Result> listOfResults) {
+        this.listOfResults = listOfResults;
     }
 }

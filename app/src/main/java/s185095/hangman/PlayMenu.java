@@ -1,5 +1,6 @@
 package s185095.hangman;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import s185095.hangman.logic.Hangman;
+import s185095.hangman.logic.Result;
 
 public class PlayMenu extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,7 +35,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private Animation fadeIn, fadeOut;
     private SharedPreferences sPref;
     private SharedPreferences.Editor sEdit;
-    private String sPKey, sPKeyHS, sPKeyWL, sPKeyG;
+    private String sPKey, sPKeyHS, sPKeyWL, sPKeyG, sPKeyRS;
     private int gamesPlayed, winLose;
 
 
@@ -51,7 +53,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         logic = Hangman.getInstance();
 
         //Initialize textviews
-        tWord = findViewById(R.id.tWord); tWord.setText(logic.getVisibleWord());
+        tWord = findViewById(R.id.tCurrentWord); tWord.setText(logic.getVisibleWord());
         tScore = findViewById(R.id.tScore); tScore.setText(Integer.toString(logic.getCurrScore()));
 
         //Initialize imageview
@@ -60,7 +62,8 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         //Initialize restart button and Results button
         bRestart = findViewById(R.id.bRestart); bRestart.setVisibility(View.INVISIBLE);
         bRestart.setOnClickListener(this);
-        bResults = findViewById(R.id.)
+        bResults = findViewById(R.id.bResults); bResults.setVisibility(View.INVISIBLE);
+        bResults.setOnClickListener(this);
 
         //Initialize keyboard buttons
         keyboard = new ArrayList<>();
@@ -84,7 +87,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout);
 
         //Initialize sharedpreference
-        sPKey = "hangman.data"; sPKeyHS = "highscore"; sPKeyWL = "winlose"; sPKeyG = "games";
+        sPKey = "hangman.data"; sPKeyHS = "highscore"; sPKeyWL = "winlose"; sPKeyG = "games"; sPKeyRS = "results";
         sPref = getSharedPreferences(sPKey,MODE_PRIVATE);
         sEdit = sPref.edit();
 
@@ -114,9 +117,14 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
             if (v == bRestart){
                 restartGame();
             }
+            if (v == bResults){
+                startActivity(new Intent(PlayMenu.this, ResultsMenu.class));
+            }
         }
         if (logic.isGameOver()){
-            checkIfGameIsWonOrLost();
+            if (logic.getCurrScore() != 0){
+                checkIfGameIsWonOrLost();
+            }
         }
         debugMessages();
     }
@@ -125,6 +133,16 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     protected void onResume() {
         super.onResume();
         debugMessages();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (logic.getCurrScore() != 0){
+            logic.getListOfHighscores().add(logic.getCurrScore());
+            saveSharedData(logic.getListOfHighscores(), sPKeyHS);
+            logic.setCurrScore(0);
+        }
     }
 
     private void debugMessages() {
@@ -176,11 +194,6 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private void restartGame() {
         conLayout.setBackground(getDrawable(R.drawable.gframe00));
 
-        if (logic.getWrongGuesses() == 6){
-            logic.getListOfHighscores().add(logic.getCurrScore());
-            saveSharedData(logic.getListOfHighscores(), sPKeyHS);
-            logic.setCurrScore(0);
-        }
         logic.restartGame();
         tScore.setText(Integer.toString(logic.getCurrScore()));
 
@@ -193,22 +206,8 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         }
 
         bRestart.setVisibility(View.INVISIBLE);
+        bResults.setVisibility(View.INVISIBLE);
         iGameOver.setVisibility(View.INVISIBLE);
-    }
-
-    /** SAVES DATA THROUGH SHAREDPREFERENCE */
-    private void saveSharedData(List<Integer> arrList, String key) {
-        Gson gson = new Gson();
-        String json = gson.toJson(arrList);
-        sEdit.putString(key,json);
-        sEdit.apply();
-    }
-
-    /** SAVES DATA THROUGH SHAREDPREFERENCE */
-    private void saveSharedData(int number, String key) {
-        String json = Integer.toString(number);
-        sEdit.putString(key, json);
-        sEdit.apply();
     }
 
     /** CHANGES THE VIEW DEPENDING ON IF IT WAS A WIN OR LOSE. ALSO UPDATES STATS ON THE LOGIC END */
@@ -223,10 +222,16 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
         bRestart.startAnimation(fadeIn);
         bRestart.setVisibility(View.VISIBLE);
+        bResults.startAnimation(fadeIn);
+        bResults.setVisibility(View.VISIBLE);
 
         if (logic.getWrongGuesses() == 6){
             tWord.setTextColor(Color.parseColor("#FF0000"));
             startAnimation(getDrawable(R.drawable.ic_lose));
+
+            logic.getListOfHighscores().add(logic.getCurrScore());
+            saveSharedData(logic.getListOfHighscores(), sPKeyHS);
+            logic.setCurrScore(0);
 
             winLose--;
             logic.getListOfWinsLosses().add(winLose);
@@ -246,9 +251,27 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
             gamesPlayed++;
             logic.setGamesPlayed(gamesPlayed);
         }
+        Result result = new Result(logic.getWrongGuesses(),logic.getCurrWord());
+        logic.getListOfResults().add(result);
 
+        saveSharedData(logic.getListOfResults(),sPKeyRS);
         saveSharedData(logic.getListOfWinsLosses(), sPKeyWL);
         saveSharedData(logic.getGamesPlayed(), sPKeyG);
+    }
+
+    /** SAVES DATA THROUGH SHAREDPREFERENCE */
+    private void saveSharedData(List arrList, String key) {
+        Gson gson = new Gson();
+        String json = gson.toJson(arrList);
+        sEdit.putString(key,json);
+        sEdit.apply();
+    }
+
+    /** SAVES DATA THROUGH SHAREDPREFERENCE */
+    private void saveSharedData(int number, String key) {
+        String json = Integer.toString(number);
+        sEdit.putString(key, json);
+        sEdit.apply();
     }
 
     /** CALLS AN ANIMATION TO BE PERFORMED ON BUTTONS AND IMAGEVIEWS */

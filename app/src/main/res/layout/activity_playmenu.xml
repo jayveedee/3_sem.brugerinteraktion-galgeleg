@@ -9,7 +9,7 @@
     tools:context=".PlayMenu">
 
     <TextView
-        android:id="@+id/tWord"
+        android:id="@+id/tCurrentWord"
         android:layout_width="400dp"
         android:layout_height="50dp"
         android:letterSpacing="0.3"

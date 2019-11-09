@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,10 +23,9 @@ import s185095.hangman.logic.Hangman;
 public class MainMenu extends AppCompatActivity implements View.OnClickListener {
 
     private static Hangman logic;
-    private String sPKey, sPKeyHS, sPKeyWL, sPKeyG;
+    private String sPKey, sPKeyHS, sPKeyWL, sPKeyG, sPkeyRS;
     private Button bStart;
     private ImageView iAbout, iStats;
-    private TextView tTitle;
     private SharedPreferences sPref;
 
     @Override
@@ -45,14 +43,10 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         iAbout = findViewById(R.id.iAbout); iAbout.setOnClickListener(this);
         iStats = findViewById(R.id.iStats); iStats.setOnClickListener(this);
 
-        tTitle = findViewById(R.id.tHangman);
-
-        sPKey = "hangman.data"; sPKeyHS = "highscore"; sPKeyWL = "winlose"; sPKeyG = "games";
+        sPKey = "hangman.data"; sPKeyHS = "highscore"; sPKeyWL = "winlose"; sPKeyG = "games"; sPkeyRS = "results";
         sPref = getSharedPreferences(sPKey,MODE_PRIVATE);
 
-        getSharedData(sPKeyHS);
-        getSharedData(sPKeyWL);
-        getSharedData(sPKeyG);
+        getData();
 
         new Sheet().execute();
     }
@@ -60,9 +54,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     @Override
     protected void onResume() {
         super.onResume();
-        getSharedData(sPKeyHS);
-        getSharedData(sPKeyWL);
-        getSharedData(sPKeyG);
+        getData();
         debugMessages();
     }
 
@@ -78,6 +70,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         if (v == bStart){
             startActivity(new Intent(MainMenu.this, PlayMenu.class));
             logic.restartGame();
+            logic.setCurrScore(0);
         }
         if (v == iAbout){
             startActivity(new Intent(MainMenu.this, AboutMenu.class));
@@ -117,6 +110,16 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
             int sharedData = Integer.parseInt(json);
             logic.setGamesPlayed(sharedData);
         }
+        if (key.equals(sPkeyRS)){
+
+        }
+    }
+
+    private void getData() {
+        getSharedData(sPKeyHS);
+        getSharedData(sPKeyWL);
+        getSharedData(sPKeyG);
+        getSharedData(sPkeyRS);
     }
 
     /** CREATES A PARALLEL THREAD TO THE MAIN ONE, TO GET THE SHEET FROM A URL */
