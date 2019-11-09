@@ -1,6 +1,5 @@
 package s185095.hangman;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -28,7 +27,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private static Hangman logic;
     private TextView tWord, tScore;
     private ImageView iGameOver;
-    private Button bRestart;
+    private Button bRestart, bResults;
     private List<Button> keyboard;
     private ConstraintLayout conLayout;
     private Animation fadeIn, fadeOut;
@@ -58,9 +57,10 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         //Initialize imageview
         iGameOver = findViewById(R.id.iGameOver);
 
-        //Initialize restart button
+        //Initialize restart button and Results button
         bRestart = findViewById(R.id.bRestart); bRestart.setVisibility(View.INVISIBLE);
         bRestart.setOnClickListener(this);
+        bResults = findViewById(R.id.)
 
         //Initialize keyboard buttons
         keyboard = new ArrayList<>();
@@ -245,8 +245,6 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
             gamesPlayed++;
             logic.setGamesPlayed(gamesPlayed);
-
-            startActivity(new Intent(PlayMenu.this, PlayWinLoseMenu.class));
         }
 
         saveSharedData(logic.getListOfWinsLosses(), sPKeyWL);

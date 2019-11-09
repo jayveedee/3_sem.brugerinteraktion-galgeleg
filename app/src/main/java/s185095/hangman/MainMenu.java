@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,6 +27,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     private String sPKey, sPKeyHS, sPKeyWL, sPKeyG;
     private Button bStart;
     private ImageView iAbout, iStats;
+    private TextView tTitle;
     private SharedPreferences sPref;
 
     @Override
@@ -42,6 +44,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         bStart = findViewById(R.id.bStart); bStart.setOnClickListener(this);
         iAbout = findViewById(R.id.iAbout); iAbout.setOnClickListener(this);
         iStats = findViewById(R.id.iStats); iStats.setOnClickListener(this);
+
+        tTitle = findViewById(R.id.tHangman);
 
         sPKey = "hangman.data"; sPKeyHS = "highscore"; sPKeyWL = "winlose"; sPKeyG = "games";
         sPref = getSharedPreferences(sPKey,MODE_PRIVATE);

@@ -21,6 +21,7 @@ android {
 
 repositories {
     maven { url 'https://jitpack.io' }
+    maven { url "https://dl.bintray.com/consp1racy/maven" }
 }
 
 dependencies {
@@ -34,4 +35,13 @@ dependencies {
     implementation 'com.jjoe64:graphview:4.2.2'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.github.FireZenk:BubbleEmitter:-SNAPSHOT'
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support' && requested.name == 'appcompat-v7') {
+            details.useTarget 'net.xpece.android:support-appcompat-v7-fixed:26.1.0-1'
+        }
+    }
 }

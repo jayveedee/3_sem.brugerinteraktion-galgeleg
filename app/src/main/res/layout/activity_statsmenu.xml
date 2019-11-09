@@ -11,63 +11,61 @@
         android:id="@+id/gLineGraph"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginTop="350dp"
-        android:layout_marginBottom="1dp"
+        android:background="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/gBarChart"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginTop="350dp"
         android:background="#000000"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/bChangeView"
         android:layout_width="200sp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginEnd="106dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="#4CAF50"
+        android:backgroundTint="#D84CAF50"
         android:onClick="onClick"
         android:text="Highscores"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/gBarChart"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.417"
         tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/bResetToDefaults"
         android:layout_width="50sp"
         android:layout_height="40sp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="293dp"
-        android:layout_marginEnd="345dp"
-        android:layout_marginBottom="326dp"
         android:background="@drawable/rounded_button"
         android:backgroundTint="#E91E63"
         android:onClick="onClick"
         android:text="Reset"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/gLineGraph"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05"
         tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
