@@ -11,6 +11,11 @@ import s185095.hangman.logic.WordListAdapter;
 
 public class ResultsMenu extends AppCompatActivity {
 
+    /**
+     * There's not much inside of this class, as most of the things needed for it are made inside of WordListAdapter and other than that
+     * Just getting data from the singleton Hangman, to update the textfield with new data
+     */
+
     private Hangman logic;
     private ListView listView;
     private TextView tCurrWord, tCurrScore;
@@ -23,13 +28,17 @@ public class ResultsMenu extends AppCompatActivity {
         initializeActivity();
     }
 
+    /** INITIALIZES THE VIEW AND CALLS THE ADAPTER TO GET THE LISTVIEW UP AND RUNNING */
     private void initializeActivity() {
+        //initialiserer logikken og listview
         logic = Hangman.getInstance();
         listView = findViewById(R.id.listView);
 
+        //Initialiserer textviewene
         tCurrWord = findViewById(R.id.tCurrentWord); tCurrWord.setText(logic.getCurrWord());
         tCurrScore = findViewById(R.id.tCurrentScore); tCurrScore.setText(Integer.toString(logic.getCurrScore()));
 
+        //Kalder adapter objektet og giver den alle nødvendige ting til at udføre opsættelsen af listviewet
         adapter = new WordListAdapter(this, R.layout.listview_layout, logic.getListOfResults());
         listView.setAdapter(adapter);
     }

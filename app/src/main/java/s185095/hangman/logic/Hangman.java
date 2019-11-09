@@ -12,6 +12,11 @@ import java.util.Random;
 
 public class Hangman {
 
+    /**
+     * This class handles most of the logic, when you guess a character, update a word, update score and so on.
+     * It also keeps track on all the variables necessary for the statistics implemented in the activities.
+     */
+
     private static final Hangman ourInstance = new Hangman();
     private List<String> listOfWords;
     private List<String> listOfLettersInWord;
@@ -29,6 +34,7 @@ public class Hangman {
     private int currScore;
 
 
+    /** INSTANTIATES THE NECESSARY VARIABLES FOR THE LOGIC CLASS*/
     private Hangman() {
         listOfWords = new ArrayList<>();
         listOfLettersInWord = new ArrayList<>();

@@ -18,6 +18,10 @@ import s185095.hangman.R;
 
 public class WordListAdapter extends ArrayAdapter<Result> {
 
+    /**
+     * This class is used to make the ListView function and by using a custom layout, there was needed to make a new class that extended ArrayAdapter with the Result as a parameter
+     */
+
     private Context context;
     private int resources;
 
@@ -28,9 +32,11 @@ public class WordListAdapter extends ArrayAdapter<Result> {
         this.resources = resource;
     }
 
+    /** METHOD THAT UPDATES THE LISTVIEW, WITH THE CUSTOM LAYOUT AND DOES SOME FUNCTIONALITY AS WELL */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        //Kalder getItem for at få objektets data
         String word = getItem(position).getWord();
         int guesses = getItem(position).getGuesses();
         boolean quitter = getItem(position).isQuitter();
@@ -40,15 +46,18 @@ public class WordListAdapter extends ArrayAdapter<Result> {
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(resources,parent,false);
 
+        //Initialiserer TextViewene
         TextView tWord = convertView.findViewById(R.id.tWord);
         TextView tGuess = convertView.findViewById(R.id.tGuesses);
 
+        //Sætter variablerne fra objektet på viewet
         tWord.setText(word);
         tGuess.setText(Integer.toString(guesses));
 
         Log.d("result", "Word: " + word);
         Log.d("result", "guesses: " + guesses);
 
+        //Ændrer på farverne alt efter hvor mange forsøg det tog at gærre rigtigt
         if (guesses >= 6){
             tWord.setTextColor(Color.parseColor("#FF0000"));
             tGuess.setTextColor(Color.parseColor("#FF0000"));

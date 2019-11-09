@@ -18,6 +18,10 @@ import java.util.List;
 
 public class AboutMenu extends AppCompatActivity implements View.OnClickListener {
 
+    /**
+     * This class contains some information about the author and the assignment. Mostly just for fun, with some random things added as well.
+     */
+
     private Button bGit, bIns;
     private ImageView iOSRS1, iOSRS2;
     private TextView tCredits, tUX1, tUX2, tUX3;
@@ -35,17 +39,21 @@ public class AboutMenu extends AppCompatActivity implements View.OnClickListener
     /** INITIALIZES THE OBJECTS AND VIEWS */
     private void initializeActivity() {
 
+        //Definerer alle hjemmesider der linkes til
         gitURL = "https://github.com/jayveedee/3_sem.brugerinteraktion-galgeleg";
         insURL = "https://www.inside.dtu.dk/en/dtuinside/generelt/telefonbog/person?id=137487&tab=0";
         osrs1URL = "https://i.imgur.com/JFxg2m1.jpg";
         osrs2URL = "https://imgur.com/72qSWYQ.jpg";
 
+        //Knapperne initialiseres
         bGit = findViewById(R.id.bGit); bGit.setOnClickListener(this);
         bIns = findViewById(R.id.bIns); bIns.setOnClickListener(this);
 
+        //Imageviews initialiseres
         iOSRS1 = findViewById(R.id.iOSRS1); iOSRS1.setOnClickListener(this);
         iOSRS2 = findViewById(R.id.iOSRS2); iOSRS2.setOnClickListener(this);
 
+        //Textvievene initialiseres
         textViewList = new ArrayList<>();
 
         tCredits = findViewById(R.id.tCredits); tCredits.setOnClickListener(this);
@@ -58,6 +66,7 @@ public class AboutMenu extends AppCompatActivity implements View.OnClickListener
         textViewList.add(tUX2);
         textViewList.add(tUX3);
 
+        //Animationen initialisers
         fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout);
 
     }
@@ -66,6 +75,7 @@ public class AboutMenu extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
 
+        //Knapper der åbner hjemmesider
         if (v == bGit){
             Log.d("about", "Opening: " + bGit.getText());
             openWebApp(gitURL);
@@ -94,6 +104,7 @@ public class AboutMenu extends AppCompatActivity implements View.OnClickListener
             iOSRS2.setClickable(false);
             iOSRS2.setVisibility(View.INVISIBLE);
         }
+        //Textviews der bliver væk om man trykker på dem
         if (textViewList.contains(v)){
             for (int i = 0; i < textViewList.size(); i++) {
                 if (v == textViewList.get(i)){

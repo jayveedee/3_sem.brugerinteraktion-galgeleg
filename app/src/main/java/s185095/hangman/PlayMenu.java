@@ -142,12 +142,16 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     protected void onDestroy() {
         super.onDestroy();
         if (logic.getCurrScore() != 0){
-            logic.getListOfHighscores().add(logic.getCurrScore());
-            saveSharedData(logic.getListOfHighscores(), sPKeyHS);
-            logic.setCurrScore(0);
+            if (!logic.isTheGameFinished()){
+                logic.getListOfHighscores().add(logic.getCurrScore());
+                saveSharedData(logic.getListOfHighscores(), sPKeyHS);
 
-            Result result = new Result(logic.getWrongGuesses(),logic.getCurrWord(), true);
-            logic.getListOfResults().add(result);
+                Result result = new Result(logic.getWrongGuesses(),logic.getCurrWord(), true);
+                logic.getListOfResults().add(result);
+            }
+
+            logic.restartGame();
+            logic.setCurrScore(0);
         }
     }
 

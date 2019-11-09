@@ -2,6 +2,11 @@ package s185095.hangman.logic;
 
 public class Result {
 
+    /**
+     * This is the result object, which is used for the listview on ResultsMenu. It contains some variables that are used on the view.
+     * Very basic class, only used to store data.
+     */
+
     private int guesses;
     private String word;
     private boolean quitter;
@@ -16,23 +21,11 @@ public class Result {
         return guesses;
     }
 
-    public void setGuesses(int guesses) {
-        this.guesses = guesses;
-    }
-
     public String getWord() {
         return word;
     }
 
-    public void setWord(String word) {
-        this.word = word;
-    }
-
     public boolean isQuitter() {
         return quitter;
-    }
-
-    public void setQuitter(boolean quitter) {
-        this.quitter = quitter;
     }
 }
