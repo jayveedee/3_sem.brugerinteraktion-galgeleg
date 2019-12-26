@@ -43,6 +43,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
     /** INITIALIZE THE VIEW AND OBJCTS */
     private void initializeActivity() {
+        //Initialiser singleton logik klassen
         logic = Hangman.getInstance();
 
         //Knapperne initialiseres
@@ -54,11 +55,11 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         sPKey = "hangman.data"; sPKeyHS = "highscore"; sPKeyWL = "winlose"; sPKeyG = "games"; sPkeyRS = "results";
         sPref = getSharedPreferences(sPKey,MODE_PRIVATE);
 
-        //Henter dataet, som er gemt, hvis der er noget
-        getData();
-
         //Laver en ny thread til at hente data fra Google Sheets
         new Sheet().execute();
+
+        //Henter dataet, som er gemt, hvis der er noget
+        getData();
     }
 
     @Override

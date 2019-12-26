@@ -43,7 +43,6 @@ public class Hangman {
         listOfResults = new ArrayList<>();
         listOfWinsLosses.add(0);
         gamesPlayed = 0;
-        listOfWords.add("FILLERWORD");
         restartGame();
     }
 
@@ -61,7 +60,16 @@ public class Hangman {
         wrongGuesses = 0;
         currLetter = "";
         gameOver = false;
-        currWord = listOfWords.get(new Random().nextInt(listOfWords.size()));
+        if (listOfWords.isEmpty()){
+            listOfWords.add("pineapple");
+            listOfWords.add("cookie");
+            listOfWords.add("wood");
+            listOfWords.add("log");
+            currWord = listOfWords.get(new Random().nextInt(listOfWords.size()));
+        }
+        else {
+            currWord = listOfWords.get(new Random().nextInt(listOfWords.size()));
+        }
         updateVisibleWord();
     }
 
@@ -95,6 +103,7 @@ public class Hangman {
     /** GUESSES CHARACTERS IN A LETTER */
     public void guessACharacter(String character){
         currLetter = character;
+        Log.d("logic", currWord);
         if (character.length() != 1){
             Log.d("logic","Character empty");
             return;
