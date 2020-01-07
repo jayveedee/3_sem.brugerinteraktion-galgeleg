@@ -271,4 +271,9 @@ public class Hangman {
     public void setListOfResults(List<Result> listOfResults) {
         this.listOfResults = listOfResults;
     }
+
+    public void setCurrWord(String currWord) {
+        this.currWord = currWord;
+        updateVisibleWord();
+    }
 }
