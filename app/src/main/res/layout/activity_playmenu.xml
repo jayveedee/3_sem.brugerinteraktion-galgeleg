@@ -8,23 +8,6 @@
     android:background="@drawable/gframe00"
     tools:context=".PlayMenu">
 
-    <TextView
-        android:id="@+id/tCurrentWord"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:letterSpacing="0.3"
-        android:textAlignment="center"
-        android:textColor="#FF9800"
-        android:textSize="30sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039"
-        tools:ignore="HardcodedText" />
-
     <ImageView
         android:id="@+id/iGameOver"
         android:layout_width="145dp"
@@ -39,6 +22,7 @@
         app:layout_constraintVertical_bias="0.93"
         tools:ignore="HardcodedText" />
 
+    <!-- RESULT BUTTON -->
     <Button
         android:id="@+id/bResults"
         android:layout_width="175dp"
@@ -58,6 +42,7 @@
         app:layout_constraintVertical_bias="0.677"
         tools:ignore="HardcodedText" />
 
+    <!-- RESTART BUTTON -->
     <Button
         android:id="@+id/bRestart"
         android:layout_width="175dp"
@@ -77,443 +62,458 @@
         app:layout_constraintVertical_bias="0.678"
         tools:ignore="HardcodedText" />
 
-    <Button
-        android:id="@+id/b7"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#8BC34A"
-        android:text="u"
-        android:textSize="18sp"
+    <TextView
+        android:id="@+id/tCurrentWord"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="23dp"
+        android:letterSpacing="0.3"
+        android:textAlignment="center"
+        android:textColor="#FF9800"
+        android:textSize="30sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b6"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b6"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#8BC34A"
-        android:text="y"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b5"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#8BC34A"
-        android:text="t"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b6"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b3"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#8BC34A"
-        android:text="e"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b4"
-        android:layout_width="51dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#8BC34A"
-        android:text="r"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b2"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#8BC34A"
-        android:text="w"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b1"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:backgroundTint="#8BC34A"
-        android:text="q"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b8"
-        android:layout_width="51dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#8BC34A"
-        android:text="i"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b7"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b13"
-        android:layout_width="67dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#FF9800"
-        android:text="d"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b14"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b12"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b10"
-        android:layout_width="67dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#FF9800"
-        android:text="p"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b11"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b12"
-        android:layout_width="67dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#FF9800"
-        android:text="s"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b13"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b11"
-        android:layout_width="68dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#FF9800"
-        android:text="a"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b12"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b10"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b14"
-        android:layout_width="68dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#FF9800"
-        android:text="f"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b13"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b9"
-        android:layout_width="67dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:backgroundTint="#FF9800"
-        android:text="o"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b25"
-        android:layout_width="101dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#3F51B5"
-        android:text="n"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b26"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b24"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.917"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b24"
-        android:layout_width="102dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#3F51B5"
-        android:text="b"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b25"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b23"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.917"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b23"
-        android:layout_width="101dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:backgroundTint="#3F51B5"
-        android:text="v"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b24"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.917"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b26"
-        android:layout_width="102dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#3F51B5"
-        android:text="m"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b25"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.917"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b21"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#009688"
-        android:text="x"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b22"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b20"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b15"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:backgroundTint="#009688"
-        android:text="g"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b16"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b16"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#009688"
-        android:text="h"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b17"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b15"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b17"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#009688"
-        android:text="j"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b18"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b16"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b18"
-        android:layout_width="51dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#009688"
-        android:text="k"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b19"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b17"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b19"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#009688"
-        android:text="l"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b20"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b18"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b22"
-        android:layout_width="51dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#009688"
-        android:text="c"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b21"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/b20"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#009688"
-        android:text="z"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b21"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b19"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854"
         tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tScore"
-        android:layout_width="170dp"
-        android:layout_height="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
         android:text="0"
         android:textAlignment="center"
         android:textColor="#00BCD4"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118"
         tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/row1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@+id/row2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/b11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            android:text="a"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="167dp" />
+
+        <Button
+            android:id="@+id/b24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#8BC34A"
+            android:text="b"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="74dp"
+            tools:layout_editor_absoluteY="167dp" />
+
+        <Button
+            android:id="@+id/b22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#009688"
+            android:text="c"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/b13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#3F51B5"
+            android:text="d"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="235dp"
+            tools:layout_editor_absoluteY="167dp" />
+
+        <Button
+            android:id="@+id/b3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#673AB7"
+            android:text="e"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="323dp"
+            tools:layout_editor_absoluteY="167dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@+id/row4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/b18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            android:text="k"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="247dp" />
+
+        <Button
+            android:id="@+id/b19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#8BC34A"
+            android:text="l"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="74dp"
+            tools:layout_editor_absoluteY="247dp" />
+
+        <Button
+            android:id="@+id/b26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#009688"
+            android:text="m"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="247dp" />
+
+        <Button
+            android:id="@+id/b25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#3F51B5"
+            android:text="n"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="235dp"
+            tools:layout_editor_absoluteY="247dp" />
+
+        <Button
+            android:id="@+id/b9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#673AB7"
+            android:text="o"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="323dp"
+            tools:layout_editor_absoluteY="247dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row4"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@+id/row5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/b10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            android:text="p"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="287dp" />
+
+        <Button
+            android:id="@+id/b1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#8BC34A"
+            android:text="q"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="74dp"
+            tools:layout_editor_absoluteY="287dp" />
+
+        <Button
+            android:id="@+id/b4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#009688"
+            android:text="r"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="287dp" />
+
+        <Button
+            android:id="@+id/b12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#3F51B5"
+            android:text="s"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="235dp"
+            tools:layout_editor_absoluteY="287dp" />
+
+        <Button
+            android:id="@+id/b5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#673AB7"
+            android:text="t"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="323dp"
+            tools:layout_editor_absoluteY="287dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row5"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@+id/row6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/b7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            android:text="u"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="327dp" />
+
+        <Button
+            android:id="@+id/b23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#8BC34A"
+            android:text="v"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="74dp"
+            tools:layout_editor_absoluteY="327dp" />
+
+        <Button
+            android:id="@+id/b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#009688"
+            android:text="w"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="327dp" />
+
+        <Button
+            android:id="@+id/b21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#3F51B5"
+            android:text="x"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="235dp"
+            tools:layout_editor_absoluteY="327dp" />
+
+        <Button
+            android:id="@+id/b6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#673AB7"
+            android:text="y"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="323dp"
+            tools:layout_editor_absoluteY="327dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@+id/row3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/b14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            android:text="f"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="207dp" />
+
+        <Button
+            android:id="@+id/b15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#8BC34A"
+            android:text="g"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="74dp"
+            tools:layout_editor_absoluteY="207dp" />
+
+        <Button
+            android:id="@+id/b16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#009688"
+            android:text="h"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="207dp" />
+
+        <Button
+            android:id="@+id/b8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#3F51B5"
+            android:text="i"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="235dp"
+            tools:layout_editor_absoluteY="207dp" />
+
+        <Button
+            android:id="@+id/b17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#673AB7"
+            android:text="j"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="323dp"
+            tools:layout_editor_absoluteY="207dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row6"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/b20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F44336"
+            android:text="z"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bChallenge"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="257dp"
+        android:backgroundTint="#1F1C1C"
+        android:fontFamily="serif-monospace"
+        android:text="Challenge"
+        android:textColor="#03A9F4"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

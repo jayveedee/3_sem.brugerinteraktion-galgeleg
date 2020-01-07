@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ResultsMenu"></activity>
+        <activity android:name=".ChallengeMenu"></activity>
+        <activity android:name=".ResultsMenu" />
         <activity android:name=".AboutMenu" />
         <activity android:name=".StatsMenu" />
         <activity android:name=".PlayMenu" />

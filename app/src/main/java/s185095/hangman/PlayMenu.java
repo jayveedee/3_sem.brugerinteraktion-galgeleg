@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,7 +30,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private static Hangman logic;
     private TextView tWord, tScore;
     private ImageView iGameOver;
-    private Button bRestart, bResults;
+    private Button bRestart, bResults, bChallenge;
     private List<Button> keyboard;
     private ConstraintLayout conLayout;
     private Animation fadeIn, fadeOut;
@@ -38,6 +39,7 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
     private String sPKey, sPKeyHS, sPKeyWL, sPKeyG, sPKeyRS;
     private int gamesPlayed, winLose;
     private boolean resultActivityPlaying;
+    private MediaPlayer loseSound, winSound;
 
 
     @Override
@@ -65,6 +67,9 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         bRestart.setOnClickListener(this);
         bResults = findViewById(R.id.bResults); bResults.setVisibility(View.INVISIBLE);
         bResults.setOnClickListener(this);
+        bChallenge = findViewById(R.id.bChallenge); bChallenge.setVisibility(View.VISIBLE);
+        bChallenge.setOnClickListener(this);
+
 
         //Initialize keyboard buttons
         keyboard = new ArrayList<>();
@@ -128,6 +133,10 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
                 checkIfGameIsWonOrLost();
             }
         }
+        if (v == bChallenge){
+            startActivity(new Intent(PlayMenu.this,ChallengeMenu.class));
+            PlayMenu.this.finish();
+        }
         debugMessages();
     }
 
@@ -136,6 +145,17 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
         super.onResume();
         debugMessages();
         resultActivityPlaying = false;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (winSound != null){
+            winSound.release();
+        }
+        if (loseSound != null){
+            loseSound.release();
+        }
     }
 
     @Override
@@ -250,6 +270,9 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
             Result result = new Result(logic.getWrongGuesses(),logic.getCurrWord(), false);
             logic.getListOfResults().add(result);
+
+            loseSound = MediaPlayer.create(getApplicationContext(),R.raw.lose);
+            loseSound.start();
         }
         else {
             tWord.setTextColor(Color.parseColor("#8BC34A"));
@@ -265,6 +288,9 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
             Result result = new Result(logic.getWrongGuesses(),logic.getCurrWord(), false);
             logic.getListOfResults().add(result);
+
+            winSound = MediaPlayer.create(getApplicationContext(),R.raw.win);
+            winSound.start();
         }
 
         saveSharedData(logic.getListOfResults(),sPKeyRS);
