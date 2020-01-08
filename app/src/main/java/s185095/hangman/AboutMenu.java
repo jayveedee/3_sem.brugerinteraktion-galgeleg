@@ -1,6 +1,7 @@
 package s185095.hangman;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,7 @@ public class AboutMenu extends AppCompatActivity implements View.OnClickListener
     private String gitURL, osrs1URL, osrs2URL, insURL;
     private List<TextView> textViewList;
     private Animation fadeOut;
+    private MediaPlayer backgroundSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,17 @@ public class AboutMenu extends AppCompatActivity implements View.OnClickListener
         //Animationen initialisers
         fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout);
 
+        //Baggrund musik
+        backgroundSound = MediaPlayer.create(AboutMenu.this,R.raw.harmony);
+        backgroundSound.start();
+        backgroundSound.setLooping(true);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        backgroundSound.release();
     }
 
     /** FUNCTIONALITY ADDED TO CLICKABLE VIEWS */
