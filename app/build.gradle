@@ -37,6 +37,9 @@ dependencies {
     implementation 'com.github.FireZenk:BubbleEmitter:-SNAPSHOT'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.github.jinatonic.confetti:confetti:1.1.2'
+    implementation 'com.android.support:support-compat:29.1.1'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
 }
 
 configurations.all {

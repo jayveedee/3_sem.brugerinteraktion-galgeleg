@@ -11,6 +11,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -60,6 +62,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         //Henter dataet, som er gemt, hvis der er noget
         getData();
+
+        //Laver en lille animation ved brug af et bibliotek som hedder "Android View Animations"
+        YoYo.with(Techniques.Pulse).duration(1000).repeat(100).playOn(findViewById(R.id.tHangman));
     }
 
     @Override
