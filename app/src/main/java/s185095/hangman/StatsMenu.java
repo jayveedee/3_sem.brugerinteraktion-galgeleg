@@ -58,7 +58,7 @@ public class StatsMenu extends AppCompatActivity implements View.OnClickListener
 
         //Finder grafen og sætter nogle værdier ind
         gLineGraph = findViewById(R.id.gLineGraph);
-        gLineGraph.setTitle("Win / Lose Graph");
+        gLineGraph.setTitle("Words Guessed Graph");
         gLineGraph.setTitleTextSize(75);
 
         //Laver en serie, som er linjepunkterne
@@ -84,8 +84,8 @@ public class StatsMenu extends AppCompatActivity implements View.OnClickListener
             gLineGraph.getViewport().setXAxisBoundsManual(true);
 
             GridLabelRenderer gridLabel = gLineGraph.getGridLabelRenderer();
-            gridLabel.setHorizontalAxisTitle("Games Played");
-            gridLabel.setVerticalAxisTitle("Games Won / Lost");
+            gridLabel.setHorizontalAxisTitle("Words Guessed");
+            gridLabel.setVerticalAxisTitle("Wrong / Right");
         }
     }
 
@@ -188,7 +188,7 @@ public class StatsMenu extends AppCompatActivity implements View.OnClickListener
         if (v == bChangeView){
             if (bChangeView.getText().equals("Highscores")){
                 gBarChart.setVisibility(View.VISIBLE);
-                bChangeView.setText("Win / Lose");
+                bChangeView.setText("Words Guessed");
             }
             else {
                 gBarChart.setVisibility(View.INVISIBLE);
