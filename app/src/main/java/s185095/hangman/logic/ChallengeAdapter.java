@@ -15,16 +15,16 @@ import s185095.hangman.R;
 
 public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder> {
 
+    /** THE RECYCLERVIEW ADAPTER FOR THE CHOOSE WORD LIST */
+
     private static final String TAG = "ChallengeAdapter";
 
     private List<String> wordList;
     private OnWordListener onWordListener;
-    private Hangman logic;
 
-    public ChallengeAdapter(List<String> wordList, OnWordListener onWordListener, Hangman logic) {
+    public ChallengeAdapter(List<String> wordList, OnWordListener onWordListener) {
         this.wordList = wordList;
         this.onWordListener = onWordListener;
-        this.logic = logic;
     }
 
     @NonNull
@@ -33,6 +33,8 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.View
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_layout,parent,false);
         return new ViewHolder(view, onWordListener);
     }
+
+    /** ADDS TEXT TO THE CUSTOM LAYOUT TO ITS POSITION IN THE LIST */
 
     @Override
     public void onBindViewHolder(@NonNull ChallengeAdapter.ViewHolder holder, int position) {
@@ -43,6 +45,8 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.View
         }
     }
 
+    /** PRINTS OUT HOW MANY ELEMENTS ARE IN THE LIST */
+
     @Override
     public int getItemCount() {
         if (wordList == null){
@@ -52,6 +56,9 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.View
             return wordList.size();
         }
     }
+
+    /** IS USED TO CREATE A ONCLICK LISTENER FOR EVERY ELEMENT ADDED TO THE RECYCLERVIEW. IT'S DONE VIA USING AN INTERFACE CALLED
+     * OnWordListener WHICH CHALLANGEMENU IMPLEMENTS SO THAT IT CAN USE THE ONCLICK METHOD */
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

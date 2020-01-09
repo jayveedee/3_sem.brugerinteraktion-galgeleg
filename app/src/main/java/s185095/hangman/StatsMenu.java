@@ -166,6 +166,7 @@ public class StatsMenu extends AppCompatActivity implements View.OnClickListener
         sPref = getSharedPreferences(sPKey,MODE_PRIVATE);
         sEdit = sPref.edit();
 
+        //Fjerner status baren på toppen af skærmen
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);

@@ -76,6 +76,7 @@ public class AboutMenu extends AppCompatActivity implements View.OnClickListener
         backgroundSound.start();
         backgroundSound.setLooping(true);
 
+        //Fjerner status baren på toppen af skærmen
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);

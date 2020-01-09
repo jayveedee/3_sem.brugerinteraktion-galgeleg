@@ -66,6 +66,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         //Laver en lille animation ved brug af et bibliotek som hedder "Android View Animations"
         YoYo.with(Techniques.Pulse).duration(1000).repeat(100).playOn(findViewById(R.id.tHangman));
 
+        //Fjerner status baren på toppen af skærmen
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);

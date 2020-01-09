@@ -55,6 +55,7 @@ public class ResultsMenu extends AppCompatActivity {
         toBeContinuedSound = MediaPlayer.create(getApplicationContext(),R.raw.tobecontinued);
         toBeContinuedSound.start();
 
+        //Fjerner status baren på toppen af skærmen
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
