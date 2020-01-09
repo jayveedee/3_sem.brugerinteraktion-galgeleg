@@ -33,7 +33,7 @@
         android:clickable="true"
         android:contentDescription="Assignment number Text"
         android:focusable="true"
-        android:text="M2 \n Galgeleg"
+        android:text="M3 \n Galgeleg"
         android:textAlignment="center"
         android:textColor="#FFEB3B"
         android:textSize="13sp"
