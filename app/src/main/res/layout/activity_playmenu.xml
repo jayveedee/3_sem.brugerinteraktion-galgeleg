@@ -12,61 +12,20 @@
         android:id="@+id/iGameOver"
         android:layout_width="145dp"
         android:layout_height="145dp"
+        android:layout_marginBottom="25dp"
         android:contentDescription="winning image"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/row6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.93"
-        tools:ignore="HardcodedText" />
-
-    <!-- RESULT BUTTON -->
-    <Button
-        android:id="@+id/bResults"
-        android:layout_width="175dp"
-        android:layout_height="55dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="#03A9F4"
-        android:text="Results Screen"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.677"
-        tools:ignore="HardcodedText" />
-
-    <!-- RESTART BUTTON -->
-    <Button
-        android:id="@+id/bRestart"
-        android:layout_width="175dp"
-        android:layout_height="55dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="#4CAF50"
-        android:text="Play Again"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.678"
         tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tCurrentWord"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="22dp"
         android:letterSpacing="0.3"
         android:textAlignment="center"
         android:textColor="#FF9800"
@@ -82,7 +41,6 @@
         android:id="@+id/tScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="73dp"
         android:text="0"
         android:textAlignment="center"
         android:textColor="#00BCD4"
@@ -90,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tCurrentWord"
         tools:ignore="HardcodedText" />
 
     <LinearLayout
@@ -112,7 +70,7 @@
             android:text="a"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="167dp" />
 
@@ -125,7 +83,7 @@
             android:text="b"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="74dp"
             tools:layout_editor_absoluteY="167dp" />
 
@@ -138,7 +96,7 @@
             android:text="c"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText" />
+            tools:ignore="ButtonStyle,HardcodedText" />
 
         <Button
             android:id="@+id/b13"
@@ -149,7 +107,7 @@
             android:text="d"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="235dp"
             tools:layout_editor_absoluteY="167dp" />
 
@@ -162,7 +120,7 @@
             android:text="e"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="323dp"
             tools:layout_editor_absoluteY="167dp" />
 
@@ -188,7 +146,7 @@
             android:text="k"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="247dp" />
 
@@ -201,7 +159,7 @@
             android:text="l"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="74dp"
             tools:layout_editor_absoluteY="247dp" />
 
@@ -214,7 +172,7 @@
             android:text="m"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="147dp"
             tools:layout_editor_absoluteY="247dp" />
 
@@ -227,7 +185,7 @@
             android:text="n"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="235dp"
             tools:layout_editor_absoluteY="247dp" />
 
@@ -240,7 +198,7 @@
             android:text="o"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="323dp"
             tools:layout_editor_absoluteY="247dp" />
 
@@ -266,7 +224,7 @@
             android:text="p"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="287dp" />
 
@@ -279,7 +237,7 @@
             android:text="q"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="74dp"
             tools:layout_editor_absoluteY="287dp" />
 
@@ -292,7 +250,7 @@
             android:text="r"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="147dp"
             tools:layout_editor_absoluteY="287dp" />
 
@@ -305,7 +263,7 @@
             android:text="s"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="235dp"
             tools:layout_editor_absoluteY="287dp" />
 
@@ -318,7 +276,7 @@
             android:text="t"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="323dp"
             tools:layout_editor_absoluteY="287dp" />
 
@@ -343,7 +301,7 @@
             android:text="u"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="327dp" />
 
@@ -356,7 +314,7 @@
             android:text="v"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="74dp"
             tools:layout_editor_absoluteY="327dp" />
 
@@ -369,7 +327,7 @@
             android:text="w"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="147dp"
             tools:layout_editor_absoluteY="327dp" />
 
@@ -382,7 +340,7 @@
             android:text="x"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="235dp"
             tools:layout_editor_absoluteY="327dp" />
 
@@ -395,7 +353,7 @@
             android:text="y"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="323dp"
             tools:layout_editor_absoluteY="327dp" />
 
@@ -420,7 +378,7 @@
             android:text="f"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="207dp" />
 
@@ -433,7 +391,7 @@
             android:text="g"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="74dp"
             tools:layout_editor_absoluteY="207dp" />
 
@@ -446,7 +404,7 @@
             android:text="h"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="147dp"
             tools:layout_editor_absoluteY="207dp" />
 
@@ -459,7 +417,7 @@
             android:text="i"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="235dp"
             tools:layout_editor_absoluteY="207dp" />
 
@@ -472,7 +430,7 @@
             android:text="j"
             android:textSize="18sp"
             android:visibility="visible"
-            tools:ignore="HardcodedText"
+            tools:ignore="ButtonStyle,HardcodedText"
             tools:layout_editor_absoluteX="323dp"
             tools:layout_editor_absoluteY="207dp" />
 
@@ -503,17 +461,60 @@
         android:id="@+id/bChallenge"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="257dp"
-        android:backgroundTint="#1F1C1C"
-        android:fontFamily="serif-monospace"
-        android:text="Challenge"
+        android:backgroundTint="#AB3F1313"
+        android:elevation="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Choose \nWord"
         android:textColor="#03A9F4"
+        android:textSize="16sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/row1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="@+id/row2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/bRestart"
+            android:layout_width="175dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#4CAF50"
+            android:text="Play Again"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:visibility="invisible"
+            tools:ignore="ButtonStyle,HardcodedText" />
+
+        <Button
+            android:id="@+id/bResults"
+            android:layout_width="175dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#03A9F4"
+            android:text="Results Screen"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:visibility="invisible"
+            tools:ignore="ButtonStyle,HardcodedText"
+            tools:layout_editor_absoluteX="207dp"
+            tools:layout_editor_absoluteY="386dp" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
