@@ -76,6 +76,10 @@ public class AboutMenu extends AppCompatActivity implements View.OnClickListener
         backgroundSound.start();
         backgroundSound.setLooping(true);
 
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+
     }
 
     @Override

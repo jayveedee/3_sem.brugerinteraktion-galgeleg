@@ -2,6 +2,7 @@ package s185095.hangman;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -53,6 +54,10 @@ public class ResultsMenu extends AppCompatActivity {
         //Initialiserer lyd effect
         toBeContinuedSound = MediaPlayer.create(getApplicationContext(),R.raw.tobecontinued);
         toBeContinuedSound.start();
+
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
     }
 }
 

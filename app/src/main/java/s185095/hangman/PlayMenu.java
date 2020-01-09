@@ -99,6 +99,10 @@ public class PlayMenu extends AppCompatActivity implements View.OnClickListener 
 
         //Initialize variables from logic
         initializeLogicVariables();
+
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
     }
 
     /** SPECIFICALLY INITIALIZES THE LOGIC VARIABLES, GETS USED TO UPDATE STATS REPEATEDLY */

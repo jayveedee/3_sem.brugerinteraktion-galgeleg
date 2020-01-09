@@ -165,6 +165,10 @@ public class StatsMenu extends AppCompatActivity implements View.OnClickListener
         sPKey = "hangman.data";
         sPref = getSharedPreferences(sPKey,MODE_PRIVATE);
         sEdit = sPref.edit();
+
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
     }
 
     @Override
